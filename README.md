@@ -1,5 +1,5 @@
 <p align="center">
-  <img src="https://scan-ia.inovia.space/images/logo.png" alt="Scan-IA Logo" width="200"/>
+  <img src="https://inovia.space/images/Scan-IA-logo.png" alt="Scan-IA Logo" width="200"/>
 </p>
 
 <h1 align="center">Scan-IA</h1>
