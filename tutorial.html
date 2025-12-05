@@ -1,0 +1,885 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Como Usar | Scan-IA - Tutoriais em Vídeo</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #0066FF;
+            --primary-dark: #0052CC;
+            --accent: #00D4AA;
+            --dark: #0A1628;
+            --dark-blue: #0F2847;
+            --gray-700: #3D4F6F;
+            --gray-500: #6B7C99;
+            --gray-300: #A3B1C6;
+            --white: #FFFFFF;
+            --red: #FF4757;
+            --gradient-hero: linear-gradient(135deg, #0A1628 0%, #0F2847 50%, #1A3A5C 100%);
+            --gradient-card: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: var(--dark);
+            color: var(--white);
+            line-height: 1.6;
+        }
+
+        /* NAVIGATION */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(10, 22, 40, 0.95);
+            backdrop-filter: blur(20px);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px; height: 45px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+        .logo-text {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--gray-300);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            transition: color 0.3s ease;
+        }
+
+        .nav-links a:hover, .nav-links a.active { color: var(--white); }
+
+        .nav-cta {
+            background: var(--primary);
+            color: var(--white);
+            padding: 0.75rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: all 0.3s ease;
+        }
+
+        .nav-cta:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+
+        /* PAGE HEADER */
+        .page-header {
+            padding: 10rem 2rem 5rem;
+            background: var(--gradient-hero);
+            text-align: center;
+            position: relative;
+        }
+
+        .page-header::before {
+            content: '';
+            position: absolute;
+            top: -50%; right: -20%;
+            width: 80%; height: 150%;
+            background: radial-gradient(ellipse, rgba(0, 102, 255, 0.1) 0%, transparent 60%);
+        }
+
+        .play-icon {
+            width: 80px; height: 80px;
+            background: linear-gradient(135deg, var(--red), #FF6B7A);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 30px rgba(255, 71, 87, 0.4);
+            position: relative;
+        }
+
+        .page-header h1 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 3rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            position: relative;
+        }
+
+        .page-header h1 span {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .page-header p {
+            font-size: 1.2rem;
+            color: var(--gray-300);
+            max-width: 650px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        /* QUICK NAV */
+        .quick-nav {
+            padding: 2rem;
+            background: var(--dark-blue);
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .quick-nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .quick-nav h3 {
+            text-align: center;
+            font-size: 1rem;
+            color: var(--gray-500);
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .quick-nav-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.75rem;
+            justify-content: center;
+        }
+
+        .quick-nav-item {
+            background: var(--gradient-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            padding: 0.75rem 1.25rem;
+            border-radius: 50px;
+            color: var(--gray-300);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .quick-nav-item:hover {
+            background: rgba(0, 102, 255, 0.15);
+            border-color: var(--primary);
+            color: var(--white);
+        }
+
+        .quick-nav-item .num {
+            background: var(--primary);
+            color: var(--white);
+            width: 22px; height: 22px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+        }
+
+        /* TUTORIALS SECTION */
+        .tutorials-section {
+            padding: 4rem 2rem;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .tutorial-item {
+            margin-bottom: 4rem;
+            scroll-margin-top: 100px;
+        }
+
+        .tutorial-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+
+        .tutorial-number {
+            width: 50px; height: 50px;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            flex-shrink: 0;
+        }
+
+        .tutorial-title-group h2 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .tutorial-title-group p {
+            color: var(--gray-500);
+            font-size: 0.9rem;
+        }
+
+        .video-container {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%; /* 16:9 */
+            background: var(--dark-blue);
+            border-radius: 16px;
+            overflow: hidden;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.3);
+        }
+
+        .video-container iframe {
+            position: absolute;
+            top: 0; left: 0;
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+
+        .tutorial-description {
+            margin-top: 1.5rem;
+            background: var(--gradient-card);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 12px;
+            padding: 1.5rem;
+        }
+
+        .tutorial-description h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.75rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tutorial-description ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.5rem;
+        }
+
+        .tutorial-description li {
+            color: var(--gray-300);
+            font-size: 0.9rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .tutorial-description li::before {
+            content: '✓';
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* DIVIDER */
+        .tutorial-divider {
+            height: 1px;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.1), transparent);
+            margin: 3rem 0;
+        }
+
+        /* CTA SECTION */
+        .cta-section {
+            padding: 5rem 2rem;
+            background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+            text-align: center;
+        }
+
+        .cta-content { max-width: 700px; margin: 0 auto; }
+
+        .cta-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--white);
+        }
+
+        .cta-description {
+            font-size: 1.15rem;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 2rem;
+        }
+
+        .cta-buttons {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .btn-white {
+            background: var(--white);
+            color: var(--primary);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            transition: all 0.3s ease;
+        }
+
+        .btn-white:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-outline-white {
+            background: transparent;
+            color: var(--white);
+            padding: 1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            border: 2px solid rgba(255, 255, 255, 0.4);
+            transition: all 0.3s ease;
+        }
+
+        .btn-outline-white:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        /* FOOTER */
+        footer {
+            background: var(--dark);
+            padding: 4rem 2rem 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: 2fr 1fr 1fr 1fr;
+            gap: 4rem;
+        }
+
+        .footer-brand p {
+            color: var(--gray-500);
+            margin-top: 1rem;
+            max-width: 300px;
+        }
+
+        .footer-links h4 {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            color: var(--white);
+        }
+
+        .footer-links ul { list-style: none; }
+
+        .footer-links a {
+            color: var(--gray-500);
+            text-decoration: none;
+            font-size: 0.9rem;
+            display: block;
+            padding: 0.5rem 0;
+            transition: color 0.3s ease;
+        }
+
+        .footer-links a:hover { color: var(--accent); }
+
+        .footer-bottom {
+            max-width: 1200px;
+            margin: 3rem auto 0;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.05);
+            text-align: center;
+            color: var(--gray-500);
+            font-size: 0.85rem;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 992px) {
+            .footer-container { grid-template-columns: 1fr 1fr; gap: 2rem; }
+            .tutorial-description ul { grid-template-columns: 1fr; }
+        }
+
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
+            .page-header h1 { font-size: 2.25rem; }
+            .page-header { padding: 8rem 1.5rem 3rem; }
+            .tutorials-section { padding: 2rem 1rem; }
+            .tutorial-header { flex-direction: column; text-align: center; }
+            .quick-nav-grid { flex-direction: column; align-items: center; }
+            .footer-container { grid-template-columns: 1fr; }
+            .cta-title { font-size: 2rem; }
+        }
+
+        /* SCROLL TO TOP */
+        .scroll-top {
+            position: fixed;
+            bottom: 2rem;
+            right: 2rem;
+            width: 50px; height: 50px;
+            background: var(--primary);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--white);
+            font-size: 1.25rem;
+            text-decoration: none;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 102, 255, 0.4);
+            z-index: 999;
+        }
+
+        .scroll-top.visible {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .scroll-top:hover {
+            transform: translateY(-5px);
+        }
+    </style>
+</head>
+<body>
+    <!-- NAVIGATION -->
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon"><img src="imagens/Scan-IA44x44Logo.png" alt="Scan-IA"></div>
+                <span class="logo-text">Scan-IA</span>
+            </a>
+            <ul class="nav-links">
+                <li><a href="index.html">Início</a></li>
+                <li><a href="sobre.html">Sobre</a></li>
+                <li><a href="index.html#precos">Planos</a></li>
+                <li><a href="tutorial.html" class="active">Como Usar</a></li>
+                <li><a href="ajuda.html">Ajuda</a></li>
+                <li><a href="seguranca.html">Segurança</a></li>
+            </ul>
+            <a href="index.html#precos" class="nav-cta">Começar Agora</a>
+        </div>
+    </nav>
+
+    <!-- PAGE HEADER -->
+    <section class="page-header">
+        <div class="play-icon">▶</div>
+        <h1>Como Usar o <span>Scan-IA</span></h1>
+        <p>Aprenda a usar todas as funcionalidades do Scan-IA com nossa série completa de tutoriais em vídeo.</p>
+    </section>
+
+    <!-- QUICK NAVIGATION -->
+    <section class="quick-nav">
+        <div class="quick-nav-container">
+            <h3>Ir para o tutorial</h3>
+            <div class="quick-nav-grid">
+                <a href="#video1" class="quick-nav-item">
+                    <span class="num">1</span>
+                    Interface
+                </a>
+                <a href="#video2" class="quick-nav-item">
+                    <span class="num">2</span>
+                    Plano Gratuito
+                </a>
+                <a href="#video3" class="quick-nav-item">
+                    <span class="num">3</span>
+                    Obter Licença
+                </a>
+                <a href="#video4" class="quick-nav-item">
+                    <span class="num">4</span>
+                    Ativar Licença
+                </a>
+                <a href="#video5" class="quick-nav-item">
+                    <span class="num">5</span>
+                    Primeira Leitura
+                </a>
+                <a href="#video6" class="quick-nav-item">
+                    <span class="num">6</span>
+                    Lendo Imagens
+                </a>
+                <a href="#video7" class="quick-nav-item">
+                    <span class="num">7</span>
+                    Caligrafia Difícil
+                </a>
+                <a href="#video8" class="quick-nav-item">
+                    <span class="num">8</span>
+                    Lendo PDF
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- TUTORIALS -->
+    <section class="tutorials-section">
+
+        <!-- VIDEO 1 -->
+        <div class="tutorial-item" id="video1">
+            <div class="tutorial-header">
+                <div class="tutorial-number">1</div>
+                <div class="tutorial-title-group">
+                    <h2>Conheça a Interface</h2>
+                    <p>Visão geral completa do aplicativo</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/9k9DftGx_CQ" 
+                    title="Scan-IA - Interface"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="tutorial-description">
+                <h4>📋 O que você vai aprender:</h4>
+                <ul>
+                    <li>Tela principal e abas</li>
+                    <li>Painel de Monitoramento</li>
+                    <li>Área de Resultado OCR</li>
+                    <li>Configurações do sistema</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tutorial-divider"></div>
+
+        <!-- VIDEO 2 -->
+        <div class="tutorial-item" id="video2">
+            <div class="tutorial-header">
+                <div class="tutorial-number">2</div>
+                <div class="tutorial-title-group">
+                    <h2>Plano Gratuito</h2>
+                    <p>Como usar o Scan-IA sem pagar nada</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/5oi7wLKfmko" 
+                    title="Scan-IA - Plano Gratuito"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="tutorial-description">
+                <h4>🆓 O plano FREE oferece:</h4>
+                <ul>
+                    <li>20 processamentos/mês</li>
+                    <li>1 dispositivo</li>
+                    <li>Modelo de IA básico</li>
+                    <li>Todas as funcionalidades principais</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tutorial-divider"></div>
+
+        <!-- VIDEO 3 -->
+        <div class="tutorial-item" id="video3">
+            <div class="tutorial-header">
+                <div class="tutorial-number">3</div>
+                <div class="tutorial-title-group">
+                    <h2>Obter Licença</h2>
+                    <p>Como comprar seu plano passo a passo</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/mZs9JhUNsNw" 
+                    title="Scan-IA - Obter Licença"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="tutorial-description">
+                <h4>🛒 Planos disponíveis:</h4>
+                <ul>
+                    <li>Solo: 100 processamentos/mês</li>
+                    <li>Starter: 500 processamentos/mês</li>
+                    <li>Pro: 2.000 processamentos/mês</li>
+                    <li>Desconto de 17% no plano anual</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tutorial-divider"></div>
+
+        <!-- VIDEO 4 -->
+        <div class="tutorial-item" id="video4">
+            <div class="tutorial-header">
+                <div class="tutorial-number">4</div>
+                <div class="tutorial-title-group">
+                    <h2>Ativar Licença</h2>
+                    <p>Registrando sua chave de licença</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/XswWazsMa7Q" 
+                    title="Scan-IA - Ativar Licença"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="tutorial-description">
+                <h4>🔑 Passo a passo:</h4>
+                <ul>
+                    <li>Abra o Scan-IA</li>
+                    <li>Vá na aba "Sobre Scan-IA"</li>
+                    <li>Cole a chave recebida por email</li>
+                    <li>Clique em Registrar</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tutorial-divider"></div>
+
+        <!-- VIDEO 5 -->
+        <div class="tutorial-item" id="video5">
+            <div class="tutorial-header">
+                <div class="tutorial-number">5</div>
+                <div class="tutorial-title-group">
+                    <h2>Primeira Leitura</h2>
+                    <p>Do WhatsApp ao orçamento em segundos</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/ipGFfUORadg" 
+                    title="Scan-IA - Primeira Leitura"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="tutorial-description">
+                <h4>🚀 Fluxo completo:</h4>
+                <ul>
+                    <li>Ativar monitoramento</li>
+                    <li>Baixar imagem do WhatsApp</li>
+                    <li>Processamento automático</li>
+                    <li>Copiar e colar no sistema</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tutorial-divider"></div>
+
+        <!-- VIDEO 6 -->
+        <div class="tutorial-item" id="video6">
+            <div class="tutorial-header">
+                <div class="tutorial-number">6</div>
+                <div class="tutorial-title-group">
+                    <h2>Lendo Imagens</h2>
+                    <p>Extraindo dados de receitas médicas</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/IUgI5hwCbaM" 
+                    title="Scan-IA - Lendo Imagens"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="tutorial-description">
+                <h4>📸 Tipos de documentos:</h4>
+                <ul>
+                    <li>Receitas médicas</li>
+                    <li>Pedidos de exames</li>
+                    <li>Receitas de manipulação</li>
+                    <li>Guias de convênio</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tutorial-divider"></div>
+
+        <!-- VIDEO 7 -->
+        <div class="tutorial-item" id="video7">
+            <div class="tutorial-header">
+                <div class="tutorial-number">7</div>
+                <div class="tutorial-title-group">
+                    <h2>Caligrafia Difícil</h2>
+                    <p>Usando IA avançada para casos complexos</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/DRMP1N0GiAM" 
+                    title="Scan-IA - Caligrafia Difícil"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="tutorial-description">
+                <h4>🧠 Modelos de IA:</h4>
+                <ul>
+                    <li>Básico: rápido e eficiente</li>
+                    <li>Intermediário: equilibrado</li>
+                    <li>Avançado: máxima precisão</li>
+                    <li>Como reprocessar documentos</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="tutorial-divider"></div>
+
+        <!-- VIDEO 8 -->
+        <div class="tutorial-item" id="video8">
+            <div class="tutorial-header">
+                <div class="tutorial-number">8</div>
+                <div class="tutorial-title-group">
+                    <h2>Lendo PDF</h2>
+                    <p>Processando documentos em PDF</p>
+                </div>
+            </div>
+            <div class="video-container">
+                <iframe 
+                    src="https://www.youtube.com/embed/8io0tU1lmyM" 
+                    title="Scan-IA - Lendo PDF"
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="tutorial-description">
+                <h4>📄 Suporte a PDF:</h4>
+                <ul>
+                    <li>Receitas digitais</li>
+                    <li>Documentos digitalizados</li>
+                    <li>Guias eletrônicas</li>
+                    <li>Mesma facilidade das imagens</li>
+                </ul>
+            </div>
+        </div>
+
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="cta-content">
+            <h2 class="cta-title">Pronto para começar?</h2>
+            <p class="cta-description">
+                Teste o Scan-IA gratuitamente com 20 processamentos por mês. 
+                Sem cartão de crédito, sem compromisso.
+            </p>
+            <div class="cta-buttons">
+                <a href="index.html#precos" class="btn-white">Baixar Grátis</a>
+                <a href="ajuda.html" class="btn-outline-white">Central de Ajuda</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-brand">
+                <a href="index.html" class="logo">
+                    <div class="logo-icon"><img src="imagens/Scan-IA44x44Logo.png" alt="Scan-IA"></div>
+                    <span class="logo-text">Scan-IA</span>
+                </a>
+                <p>Agilize a transcrição de receitas e pedidos médicos recebidos pelo WhatsApp.</p>
+            </div>
+            <div class="footer-links">
+                <h4>Produto</h4>
+                <ul>
+                    <li><a href="index.html#como-funciona">Como Funciona</a></li>
+                    <li><a href="index.html#precos">Planos</a></li>
+                    <li><a href="tutorial.html">Tutoriais</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Suporte</h4>
+                <ul>
+                    <li><a href="ajuda.html">Central de Ajuda</a></li>
+                    <li><a href="seguranca.html">Segurança</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="/cdn-cgi/l/email-protection#83e0ecedf7e2f7ecc3f0e0e2edaeeae2adf3f1ec">📧 <span class="__cf_email__" data-cfemail="c3a0acadb7a2b7ac83b0a0a2adeeaaa2edb3b1ac">[email&#160;protected]</span></a></li>
+                    <li><a href="tel:+5545991195200">📞 (45) 99119-5200</a></li>
+                    <li><a href="https://wa.me/5545991195200" target="_blank">💬 WhatsApp</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Empresa</h4>
+                <ul>
+                    <li><a href="sobre.html">Sobre</a></li>
+                    <li><a href="privacy.html">Privacidade</a></li>
+                    <li><a href="#">Termos de Uso</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2025 Inovia Space. Todos os direitos reservados.</p>
+        </div>
+    </footer>
+
+    <!-- SCROLL TO TOP -->
+    <a href="#" class="scroll-top" id="scrollTop">↑</a>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // Scroll to top button
+        const scrollTop = document.getElementById('scrollTop');
+        
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 500) {
+                scrollTop.classList.add('visible');
+            } else {
+                scrollTop.classList.remove('visible');
+            }
+        });
+
+        // Smooth scroll for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('clic

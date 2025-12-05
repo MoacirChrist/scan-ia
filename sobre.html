@@ -57,12 +57,17 @@
 
         .logo-icon {
             width: 45px; height: 45px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            overflow: hidden;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .logo-text {
@@ -308,13 +313,14 @@
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <div class="logo-icon">📋</div>
+                <div class="logo-icon"><img src="imagens/Scan-IA44x44Logo.png" alt="Scan-IA"></div>
                 <span class="logo-text">Scan-IA</span>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="sobre.html" class="active">Sobre</a></li>
                 <li><a href="index.html#precos">Planos</a></li>
+                <li><a href="tutorial.html">Como Usar</a></li>
                 <li><a href="ajuda.html">Ajuda</a></li>
                 <li><a href="seguranca.html">Segurança</a></li>
             </ul>
@@ -333,7 +339,7 @@
             O Scan-IA é uma ferramenta desenvolvida para <strong>agilizar a geração de orçamentos</strong> em empresas que recebem pedidos pelo WhatsApp.
         </p>
         <p>
-            Laboratórios de análises clínicas, farmácias de manipulação e farmácias comerciais recebem diariamente pedidos de orçamento via WhatsApp. O cliente captura uma imagem da receita médica ou pedido de exames usando a câmera do celular — muitas vezes de maneira rústica, com pouca iluminação, sem enquadramento adequado, sem se preocupar com a qualidade da imagem.
+            Laboratórios de análises clínicas, farmácias de manipulação e farmácias comerciais recebem diariamente pedidos de orçamento via WhatsApp. O cliente captura uma imagem da receita médica ou pedido de exames usando a câmera do celular â€” muitas vezes de maneira rústica, com pouca iluminação, sem enquadramento adequado, sem se preocupar com a qualidade da imagem.
         </p>
         <p>
             Além disso, a caligrafia do médico, nos casos de pedidos ou receitas manuscritas, frequentemente torna a leitura e transcrição das informações uma tarefa extremamente difícil, senão praticamente impossível.
@@ -359,7 +365,7 @@
             <li><strong>Outras informações</strong> relevantes encontradas no documento</li>
         </ul>
         <p>
-            O usuário visualiza a tela do Scan-IA, clica sobre um dos itens — que é copiado para a área de transferência do Windows — e recebe uma cor diferente para indicar que já foi utilizado. Assim, basta colar as informações no aplicativo gerador de orçamento.
+            O usuário visualiza a tela do Scan-IA, clica sobre um dos itens â€” que é copiado para a área de transferência do Windows â€” e recebe uma cor diferente para indicar que já foi utilizado. Assim, basta colar as informações no aplicativo gerador de orçamento.
         </p>
         <p>
             <strong>Simples e rápido.</strong> O Scan-IA facilita a rotina de atendimento e orçamento, reduzindo erros e otimizando o tempo dos profissionais.
@@ -415,12 +421,12 @@
                 <p>IA para extração de texto</p>
             </div>
             <div class="tech-item">
-                <div class="icon">☁️</div>
+                <div class="icon">â˜ï¸</div>
                 <h4>Google Cloud</h4>
                 <p>Processamento em nuvem</p>
             </div>
             <div class="tech-item">
-                <div class="icon">🖥️</div>
+                <div class="icon">🖥️</div>
                 <h4>Windows Desktop</h4>
                 <p>Aplicativo para Windows 10/11</p>
             </div>
@@ -431,7 +437,7 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <a href="index.html" class="logo">
-                    <div class="logo-icon">📋</div>
+                    <div class="logo-icon"><img src="imagens/Scan-IA44x44Logo.png" alt="Scan-IA"></div>
                     <span class="logo-text">Scan-IA</span>
                 </a>
                 <p>Agilize a transcrição de receitas e pedidos médicos recebidos pelo WhatsApp.</p>
@@ -451,16 +457,20 @@
                 </ul>
             </div>
             <div class="footer-links">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="/cdn-cgi/l/email-protection#b0d3dfdec4d1c4dff0c3d3d1de9dd9d19ec0c2df">📧 <span class="__cf_email__" data-cfemail="61020e0f1500150e211202000f4c08004f11130e">[email&#160;protected]</span></a></li>
+                    <li><a href="tel:+5545991195200">📞 (45) 99119-5200</a></li>
+                    <li><a href="https://wa.me/5545991195200" target="_blank">💬 WhatsApp</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
                 <h4>Empresa</h4>
                 <ul>
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="privacy.html">Privacidade</a></li>
                 </ul>
             </div>
         </div>
-        <div class="footer-bottom">
-            <p>© 2025 Inovia Space. Todos os direitos reservados.</p>
-        </div>
-    </footer>
-</body>
-</html>
+        <div clas

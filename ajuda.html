@@ -57,12 +57,17 @@
 
         .logo-icon {
             width: 45px; height: 45px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            overflow: hidden;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .logo-text {
@@ -326,13 +331,14 @@
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <div class="logo-icon">📋</div>
+                <div class="logo-icon"><img src="imagens/Scan-IA44x44Logo.png" alt="Scan-IA"></div>
                 <span class="logo-text">Scan-IA</span>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="index.html#precos">Planos</a></li>
+                <li><a href="tutorial.html">Como Usar</a></li>
                 <li><a href="ajuda.html" class="active">Ajuda</a></li>
                 <li><a href="seguranca.html">Segurança</a></li>
             </ul>
@@ -353,7 +359,7 @@
                 <p>Como começar</p>
             </a>
             <a href="#funcionalidades" class="quick-link">
-                <div class="icon">⚙️</div>
+                <div class="icon">⚙️</div>
                 <h3>Funcionalidades</h3>
                 <p>O que o Scan-IA faz</p>
             </a>
@@ -435,7 +441,7 @@
 
         <section class="help-category" id="funcionalidades">
             <div class="category-header">
-                <div class="category-icon">⚙️</div>
+                <div class="category-icon">⚙️</div>
                 <h2 class="category-title">Funcionalidades</h2>
             </div>
 
@@ -468,66 +474,66 @@
                     </tr>
                     <tr>
                         <td>Monitoramento automático</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                        <td>✅</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
                     </tr>
                     <tr>
                         <td>Extração de texto (IA)</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                        <td>✅</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
                     </tr>
                     <tr>
                         <td>Organização em categorias</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                        <td>✅</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
                     </tr>
                     <tr>
                         <td>Copiar para área de transferência</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                        <td>✅</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
                     </tr>
                     <tr>
                         <td>Modelo de IA básico</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                        <td>✅</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
                     </tr>
                     <tr>
                         <td>Modelo de IA intermediário</td>
-                        <td>❌</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                        <td>✅</td>
+                        <td>âŒ</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
                     </tr>
                     <tr>
                         <td>Modelo de IA avançado</td>
-                        <td>❌</td>
-                        <td>❌</td>
-                        <td>✅</td>
-                        <td>✅</td>
+                        <td>âŒ</td>
+                        <td>âŒ</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
                     </tr>
                     <tr>
                         <td>Suporte por email</td>
-                        <td>❌</td>
-                        <td>✅</td>
-                        <td>✅</td>
-                        <td>✅</td>
+                        <td>âŒ</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
                     </tr>
                     <tr>
                         <td>Suporte prioritário</td>
-                        <td>❌</td>
-                        <td>❌</td>
-                        <td>✅</td>
-                        <td>✅</td>
+                        <td>âŒ</td>
+                        <td>âŒ</td>
+                        <td>âœ…</td>
+                        <td>âœ…</td>
                     </tr>
                 </tbody>
             </table>
@@ -541,10 +547,10 @@
                     <div class="accordion-body">
                         <p>O Scan-IA organiza as informações em 4 categorias:</p>
                         <ul>
-                            <li><strong>Dados do médico</strong> — Nome, CRM, especialidade</li>
-                            <li><strong>Dados do paciente</strong> — Nome, data de nascimento</li>
-                            <li><strong>Lista de produtos/exames</strong> — Medicamentos ou exames solicitados</li>
-                            <li><strong>Outras informações</strong> — Qualquer dado adicional encontrado</li>
+                            <li><strong>Dados do médico</strong> â€” Nome, CRM, especialidade</li>
+                            <li><strong>Dados do paciente</strong> â€” Nome, data de nascimento</li>
+                            <li><strong>Lista de produtos/exames</strong> â€” Medicamentos ou exames solicitados</li>
+                            <li><strong>Outras informações</strong> â€” Qualquer dado adicional encontrado</li>
                         </ul>
                     </div>
                 </div>
@@ -585,7 +591,7 @@
                         <ul>
                             <li>Verifique a pasta de <strong>Spam/Lixo Eletrônico</strong></li>
                             <li>Aguarde até <strong>10 minutos</strong> após o pagamento</li>
-                            <li>Entre em contato: <strong>suporte@inovia.space</strong></li>
+                            <li>Entre em contato: <strong><a href="/cdn-cgi/l/email-protection#1f7c70716b7e6b705f6c7c7e7132767e316f6d70"><span class="__cf_email__" data-cfemail="f4979b9a8095809bb48797959ad99d95da84869b">[email&#160;protected]</span></a></strong> ou <a href="https://wa.me/5545991195200" target="_blank">WhatsApp (45) 99119-5200</a></li>
                         </ul>
                     </div>
                 </div>
@@ -600,9 +606,9 @@
                     <div class="accordion-body">
                         <p>Depende do seu plano:</p>
                         <ul>
-                            <li><strong>Free e Solo</strong> — 1 dispositivo</li>
-                            <li><strong>Starter</strong> — Até 3 dispositivos</li>
-                            <li><strong>Pro</strong> — Até 10 dispositivos</li>
+                            <li><strong>Free e Solo</strong> â€” 1 dispositivo</li>
+                            <li><strong>Starter</strong> â€” Até 3 dispositivos</li>
+                            <li><strong>Pro</strong> â€” Até 10 dispositivos</li>
                         </ul>
                     </div>
                 </div>
@@ -653,7 +659,11 @@
         <div class="contact-cta">
             <h2>Não encontrou o que procurava?</h2>
             <p>Nossa equipe está pronta para ajudar!</p>
-            <a href="mailto:suporte@inovia.space" class="btn-dark">📧 Enviar Email</a>
+            <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem;">
+                <a href="/cdn-cgi/l/email-protection#3c5f5352485d48537c4f5f5d5211555d124c4e53" class="btn-dark">📧 Enviar Email</a>
+                <a href="https://wa.me/5545991195200" target="_blank" class="btn-dark" style="background: #25D366;">💬 WhatsApp</a>
+                <a href="tel:+5545991195200" class="btn-dark" style="background: var(--primary);">📞 Ligar</a>
+            </div>
         </div>
     </div>
 
@@ -661,7 +671,7 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <a href="index.html" class="logo">
-                    <div class="logo-icon">📋</div>
+                    <div class="logo-icon"><img src="imagens/Scan-IA44x44Logo.png" alt="Scan-IA"></div>
                     <span class="logo-text">Scan-IA</span>
                 </a>
                 <p>Agilize a transcrição de receitas e pedidos médicos recebidos pelo WhatsApp.</p>
@@ -681,10 +691,19 @@
                 </ul>
             </div>
             <div class="footer-links">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="/cdn-cgi/l/email-protection#2b4844455f4a5f446b58484a4506424a055b5944">📧 <span class="__cf_email__" data-cfemail="0f6c60617b6e7b604f7c6c6e6122666e217f7d60">[email&#160;protected]</span></a></li>
+                    <li><a href="tel:+5545991195200">📞 (45) 99119-5200</a></li>
+                    <li><a href="https://wa.me/5545991195200" target="_blank">💬 WhatsApp</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
                 <h4>Empresa</h4>
                 <ul>
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="privacy.html">Privacidade</a></li>
                 </ul>
             </div>
         </div>
@@ -693,15 +712,4 @@
         </div>
     </footer>
 
-    <script>
-        document.querySelectorAll('.accordion-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.parentElement;
-                const isActive = item.classList.contains('active');
-                document.querySelectorAll('.accordion-item').forEach(i => i.classList.remove('active'));
-                if (!isActive) item.classList.add('active');
-            });
-        });
-    </script>
-</body>
-</html>
+    <scr

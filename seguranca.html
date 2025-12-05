@@ -57,12 +57,17 @@
 
         .logo-icon {
             width: 45px; height: 45px;
-            background: linear-gradient(135deg, var(--primary) 0%, var(--accent) 100%);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
-            font-size: 1.5rem;
+            overflow: hidden;
+        }
+
+        .logo-icon img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
         }
 
         .logo-text {
@@ -403,13 +408,14 @@
     <nav>
         <div class="nav-container">
             <a href="index.html" class="logo">
-                <div class="logo-icon">📋</div>
+                <div class="logo-icon"><img src="imagens/Scan-IA44x44Logo.png" alt="Scan-IA"></div>
                 <span class="logo-text">Scan-IA</span>
             </a>
             <ul class="nav-links">
                 <li><a href="index.html">Início</a></li>
                 <li><a href="sobre.html">Sobre</a></li>
                 <li><a href="index.html#precos">Planos</a></li>
+                <li><a href="tutorial.html">Como Usar</a></li>
                 <li><a href="ajuda.html">Ajuda</a></li>
                 <li><a href="seguranca.html" class="active">Segurança</a></li>
             </ul>
@@ -426,12 +432,12 @@
     <section class="badges">
         <div class="badges-container">
             <div class="badge-item">
-                <div class="icon">🔐</div>
+                <div class="icon">🔒</div>
                 <h3>Criptografia HTTPS</h3>
                 <p>Comunicação segura</p>
             </div>
             <div class="badge-item">
-                <div class="icon">☁️</div>
+                <div class="icon">â˜ï¸</div>
                 <h3>Google Cloud</h3>
                 <p>Infraestrutura confiável</p>
             </div>
@@ -449,14 +455,14 @@
     </section>
 
     <section class="content-section">
-        <h2><span class="icon">🔒</span> Como seus dados são tratados</h2>
+        <h2><span class="icon">🔑</span> Como seus dados são tratados</h2>
         <p>
             O Scan-IA foi desenvolvido priorizando a privacidade. Entenda o que acontece com seus arquivos:
         </p>
 
         <div class="security-grid">
             <div class="security-card">
-                <div class="card-icon">🔐</div>
+                <div class="card-icon">🔒</div>
                 <h4>Comunicação Criptografada</h4>
                 <p>Os dados enviados entre seu computador e nossos servidores são protegidos com HTTPS.</p>
             </div>
@@ -466,7 +472,7 @@
                 <p>Os arquivos são processados e descartados imediatamente. Não guardamos suas imagens.</p>
             </div>
             <div class="security-card">
-                <div class="card-icon">🖥️</div>
+                <div class="card-icon">🖥️</div>
                 <h4>Resultado Local</h4>
                 <p>Os dados extraídos ficam apenas no seu computador. Você controla as informações.</p>
             </div>
@@ -510,16 +516,16 @@
 
         <ul class="check-list">
             <li>
-                <span class="check">✓</span>
-                <span><strong>Arquivos não são armazenados</strong> — São processados e imediatamente descartados</span>
+                <span class="check">âœ✔</span>
+                <span><strong>Arquivos não são armazenados</strong> â€” São processados e imediatamente descartados</span>
             </li>
             <li>
-                <span class="check">✓</span>
-                <span><strong>Dados ficam no seu computador</strong> — Apenas você tem acesso aos resultados</span>
+                <span class="check">âœ✔</span>
+                <span><strong>Dados ficam no seu computador</strong> â€” Apenas você tem acesso aos resultados</span>
             </li>
             <li>
-                <span class="check">✓</span>
-                <span><strong>Sem compartilhamento</strong> — Seus dados não são vendidos ou compartilhados</span>
+                <span class="check">âœ✔</span>
+                <span><strong>Sem compartilhamento</strong> â€” Seus dados não são vendidos ou compartilhados</span>
             </li>
         </ul>
     </section>
@@ -584,7 +590,7 @@
         <div class="footer-container">
             <div class="footer-brand">
                 <a href="index.html" class="logo">
-                    <div class="logo-icon">📋</div>
+                    <div class="logo-icon"><img src="imagens/Scan-IA44x44Logo.png" alt="Scan-IA"></div>
                     <span class="logo-text">Scan-IA</span>
                 </a>
                 <p>Agilize a transcrição de receitas e pedidos médicos recebidos pelo WhatsApp.</p>
@@ -604,10 +610,19 @@
                 </ul>
             </div>
             <div class="footer-links">
+                <h4>Contato</h4>
+                <ul>
+                    <li><a href="/cdn-cgi/l/email-protection#264549485247524966554547480b4f4708565449">📧 <span class="__cf_email__" data-cfemail="f2919d9c8693869db28191939cdf9b93dc82809d">[email&#160;protected]</span></a></li>
+                    <li><a href="tel:+5545991195200">📞 (45) 99119-5200</a></li>
+                    <li><a href="https://wa.me/5545991195200" target="_blank">💬 WhatsApp</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
                 <h4>Empresa</h4>
                 <ul>
                     <li><a href="sobre.html">Sobre</a></li>
                     <li><a href="#">Termos de Uso</a></li>
+                    <li><a href="privacy.html">Privacidade</a></li>
                 </ul>
             </div>
         </div>
@@ -616,15 +631,8 @@
         </div>
     </footer>
 
-    <script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         document.querySelectorAll('.faq-header').forEach(header => {
             header.addEventListener('click', () => {
                 const item = header.parentElement;
-                const isActive = item.classList.contains('active');
-                document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('active'));
-                if (!isActive) item.classList.add('active');
-            });
-        });
-    </script>
-</body>
-</html>
+                const isActive = item.class
