@@ -279,9 +279,165 @@
             transform: translateY(-2px);
         }
 
+        /* ========================================
+           CARROSSEL DE GIFs - Hero Visual
+           ======================================== */
         .hero-visual {
             animation: fadeInUp 1s ease-out 0.3s both;
         }
+
+        .gif-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: var(--shadow-lg), var(--shadow-glow);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            background: var(--dark-blue);
+        }
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            aspect-ratio: 16/10;
+            overflow: hidden;
+        }
+
+        .carousel-slides {
+            display: flex;
+            width: 400%;
+            height: 100%;
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .carousel-slide {
+            width: 25%;
+            height: 100%;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #000;
+        }
+
+        .carousel-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+        }
+
+        /* Navegação do Carrossel */
+        .carousel-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.95);
+            border: none;
+            border-radius: 50%;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 10;
+        }
+
+        .carousel-nav:hover {
+            background: var(--white);
+            transform: translateY(-50%) scale(1.1);
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .carousel-nav.prev { left: 12px; }
+        .carousel-nav.next { right: 12px; }
+
+        .carousel-nav svg {
+            width: 20px;
+            height: 20px;
+            fill: var(--dark);
+        }
+
+        /* Indicadores (dots) */
+        .carousel-indicators {
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            padding: 16px;
+            background: linear-gradient(180deg, transparent, rgba(0, 0, 0, 0.7));
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+        }
+
+        .carousel-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.4);
+            border: none;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            padding: 0;
+        }
+
+        .carousel-dot.active {
+            background: var(--accent);
+            width: 24px;
+            border-radius: 10px;
+        }
+
+        .carousel-dot:hover:not(.active) {
+            background: rgba(255, 255, 255, 0.7);
+        }
+
+        /* Caption do Slide */
+        .carousel-caption {
+            position: absolute;
+            bottom: 50px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            padding: 0 20px;
+            opacity: 0;
+            transform: translateY(10px);
+            transition: all 0.4s ease;
+        }
+
+        .carousel-caption.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .carousel-caption span {
+            display: inline-block;
+            background: rgba(0, 0, 0, 0.7);
+            color: var(--white);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            font-weight: 500;
+            backdrop-filter: blur(10px);
+        }
+
+        /* Progress Bar */
+        .carousel-progress {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 3px;
+            background: var(--accent);
+            width: 0%;
+            transition: width 0.1s linear;
+        }
+
+        /* ========================================
+           FIM CARROSSEL
+           ======================================== */
 
         .hero-image {
             width: 100%;
@@ -724,6 +880,140 @@
             height: 16px;
         }
 
+        /* ENTERPRISE PLANS */
+        .enterprise-plans {
+            max-width: 900px;
+            margin: 4rem auto 0;
+            padding-top: 3rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .enterprise-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--gray-300);
+            text-align: center;
+            margin-bottom: 2rem;
+        }
+
+        .enterprise-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1.5rem;
+        }
+
+        .enterprise-card {
+            background: var(--gradient-card);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+        }
+
+        .enterprise-card:hover {
+            border-color: rgba(0, 212, 170, 0.3);
+            transform: translateY(-3px);
+        }
+
+        .enterprise-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .enterprise-icon {
+            font-size: 2rem;
+        }
+
+        .enterprise-header h4 {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-bottom: 0.25rem;
+        }
+
+        .enterprise-header p {
+            font-size: 0.85rem;
+            color: var(--gray-500);
+            margin: 0;
+        }
+
+        .enterprise-features {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .enterprise-features span {
+            background: rgba(0, 212, 170, 0.1);
+            color: var(--accent);
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 500;
+        }
+
+        .enterprise-price {
+            margin-bottom: 1rem;
+        }
+
+        .enterprise-price-monthly,
+        .enterprise-price-annual {
+            display: flex;
+            align-items: baseline;
+            gap: 0.25rem;
+        }
+
+        .enterprise-price-annual {
+            display: none;
+        }
+
+        .annual-mode .enterprise-price-monthly {
+            display: none;
+        }
+
+        .annual-mode .enterprise-price-annual {
+            display: flex;
+        }
+
+        .enterprise-price strong {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+        }
+
+        .enterprise-price span {
+            font-size: 0.9rem;
+            color: var(--gray-500);
+        }
+
+        .enterprise-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(37, 211, 102, 0.15);
+            color: #25D366;
+            padding: 0.65rem 1.25rem;
+            border-radius: 50px;
+            font-size: 0.85rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .enterprise-cta:hover {
+            background: rgba(37, 211, 102, 0.25);
+        }
+
+        .enterprise-cta::before {
+            content: '💬';
+        }
+
         /* CTA */
         .cta-section {
             padding: 6rem 2rem;
@@ -825,6 +1115,344 @@
             font-size: 0.85rem;
         }
 
+        /* ========================================
+           MODAL DE AVISO DOWNLOAD
+           ======================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: linear-gradient(180deg, #1a2a4a 0%, #0f1f3a 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            padding: 2.5rem;
+            position: relative;
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            color: var(--gray-300);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .modal-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #FFA726 0%, #FF7043 100%);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 30px rgba(255, 167, 38, 0.3);
+        }
+
+        .modal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .modal-text {
+            color: var(--gray-300);
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .modal-text strong {
+            color: var(--accent);
+        }
+
+        .modal-recommendation {
+            background: rgba(0, 212, 170, 0.1);
+            border: 1px solid rgba(0, 212, 170, 0.3);
+            border-radius: 12px;
+            padding: 1rem;
+            margin-bottom: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .modal-recommendation .rec-icon {
+            font-size: 1.5rem;
+            flex-shrink: 0;
+        }
+
+        .modal-recommendation p {
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            margin: 0;
+        }
+
+        .modal-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .modal-btn {
+            padding: 1rem 1.5rem;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.5rem;
+            border: none;
+        }
+
+        .modal-btn.primary {
+            background: linear-gradient(135deg, #00BCF2 0%, #0078D4 100%);
+            color: var(--white);
+            box-shadow: 0 4px 20px rgba(0, 120, 212, 0.4);
+        }
+
+        .modal-btn.primary:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(0, 120, 212, 0.5);
+        }
+
+        .modal-btn.primary svg {
+            width: 18px;
+            height: 18px;
+        }
+
+        .modal-btn.secondary {
+            background: rgba(255, 255, 255, 0.08);
+            color: var(--gray-300);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .modal-btn.secondary:hover {
+            background: rgba(255, 255, 255, 0.12);
+            color: var(--white);
+        }
+
+        .modal-footer {
+            margin-top: 1.25rem;
+            text-align: center;
+        }
+
+        .modal-footer p {
+            color: var(--gray-500);
+            font-size: 0.8rem;
+        }
+
+        /* ========================================
+           LIGHTBOX PARA GIFs
+           ======================================== */
+        .lightbox-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 10000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            cursor: zoom-out;
+        }
+
+        .lightbox-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .lightbox-content {
+            position: relative;
+            max-width: 95vw;
+            max-height: 90vh;
+            transform: scale(0.9);
+            transition: all 0.3s ease;
+        }
+
+        .lightbox-overlay.active .lightbox-content {
+            transform: scale(1);
+        }
+
+        .lightbox-content img {
+            max-width: 100%;
+            max-height: 85vh;
+            border-radius: 12px;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .lightbox-close {
+            position: absolute;
+            top: -50px;
+            right: 0;
+            width: 44px;
+            height: 44px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: scale(1.1);
+        }
+
+        .lightbox-caption {
+            position: absolute;
+            bottom: -50px;
+            left: 0;
+            right: 0;
+            text-align: center;
+            color: var(--gray-300);
+            font-size: 1rem;
+        }
+
+        .lightbox-nav {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            width: 50px;
+            height: 50px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            color: var(--white);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .lightbox-nav:hover {
+            background: rgba(255, 255, 255, 0.2);
+            transform: translateY(-50%) scale(1.1);
+        }
+
+        .lightbox-nav.prev {
+            left: -70px;
+        }
+
+        .lightbox-nav.next {
+            right: -70px;
+        }
+
+        .lightbox-hint {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: rgba(0, 0, 0, 0.6);
+            color: var(--gray-300);
+            padding: 6px 12px;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            pointer-events: none;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .carousel-slide:hover .lightbox-hint {
+            opacity: 1;
+        }
+
+        /* Cursor de zoom nos slides */
+        .carousel-slide {
+            cursor: zoom-in;
+        }
+
+        @media (max-width: 768px) {
+            .lightbox-nav {
+                width: 40px;
+                height: 40px;
+            }
+            .lightbox-nav.prev {
+                left: 10px;
+            }
+            .lightbox-nav.next {
+                right: 10px;
+            }
+            .lightbox-close {
+                top: 10px;
+                right: 10px;
+                position: fixed;
+            }
+            .lightbox-caption {
+                bottom: 20px;
+                padding: 0 20px;
+            }
+        }
+
         /* RESPONSIVE */
         @media (max-width: 1200px) {
             .pricing-grid, .features-grid { grid-template-columns: repeat(2, 1fr); }
@@ -838,6 +1466,7 @@
             .hero-buttons { justify-content: center; }
             .problem-grid, .audience-grid { grid-template-columns: 1fr; }
             .footer-container { grid-template-columns: 1fr 1fr; }
+            .gif-carousel { max-width: 500px; margin: 0 auto; }
         }
 
         @media (max-width: 768px) {
@@ -849,6 +1478,11 @@
             .step { grid-template-columns: 60px 1fr; gap: 1.5rem; }
             .step-number { width: 60px; height: 60px; font-size: 1.5rem; }
             .hero-buttons { flex-direction: column; align-items: center; }
+            .carousel-nav { width: 36px; height: 36px; }
+            .carousel-nav svg { width: 16px; height: 16px; }
+            .gif-carousel { max-width: 100%; }
+            .enterprise-grid { grid-template-columns: 1fr; }
+            .enterprise-title { font-size: 1.1rem; }
         }
     </style>
 </head>
@@ -868,7 +1502,10 @@
                 <li><a href="ajuda.html">Ajuda</a></li>
                 <li><a href="seguranca.html">Segurança</a></li>
             </ul>
-            <a href="#precos" class="nav-cta">Começar Agora</a>
+            <a href="https://apps.microsoft.com/detail/9NZ7W4237G5X?hl=pt-br&gl=BR&ocid=pdpshare" class="btn-store" target="_blank">
+				<svg viewBox="0 0 21 21" fill="currentColor"><path d="M0 0h10v10H0zM11 0h10v10H11zM0 11h10v10H0zM11 11h10v10H11z"/></svg>
+				<span>Microsoft Store</span>
+			</a>
         </div>
     </nav>
 
@@ -887,15 +1524,70 @@
                         <svg viewBox="0 0 21 21" fill="currentColor"><path d="M0 0h10v10H0zM11 0h10v10H11zM0 11h10v10H0zM11 11h10v10H11z"/></svg>
                         <span>Microsoft Store</span>
                     </a>
-                    <a href="downloads/ScanIA_Setup_1.0.4.exe" class="btn-download" download>
+                    <a href="#" class="btn-download" id="heroDownloadBtn">
                         <span>⬇️</span>
                         <span>Download Direto</span>
                     </a>
                     <a href="sobre.html" class="btn-secondary">Saiba Mais</a>
                 </div>
             </div>
+
+            <!-- CARROSSEL DE GIFs -->
             <div class="hero-visual">
-                <img src="telas/Registro.png" alt="Scan-IA Interface" class="hero-image">
+                <div class="gif-carousel" id="gifCarousel">
+                    <div class="carousel-progress" id="carouselProgress"></div>
+                    
+                    <div class="carousel-container">
+                        <div class="carousel-slides" id="carouselSlides">
+                            <div class="carousel-slide" data-index="0">
+                                <img src="gifs/Transforme-image-em-texto-com-scan-IA.gif" alt="Transforme imagem em texto com Scan-IA" loading="eager">
+                                <span class="lightbox-hint">🔍 Clique para ampliar</span>
+                            </div>
+                            <div class="carousel-slide" data-index="1">
+                                <img src="gifs/Instalando.gif" alt="Instalando o Scan-IA" loading="lazy">
+                                <span class="lightbox-hint">🔍 Clique para ampliar</span>
+                            </div>
+                            <div class="carousel-slide" data-index="2">
+                                <img src="gifs/Registrando-Scan-IA.gif" alt="Registrando licença do Scan-IA" loading="lazy">
+                                <span class="lightbox-hint">🔍 Clique para ampliar</span>
+                            </div>
+                            <div class="carousel-slide" data-index="3">
+                                <img src="gifs/Usando-o-Scan-IA.gif" alt="Usando o Scan-IA no dia a dia" loading="lazy">
+                                <span class="lightbox-hint">🔍 Clique para ampliar</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Captions -->
+                    <div class="carousel-caption active" data-slide="0">
+                        <span>📄 Transforme imagem em texto</span>
+                    </div>
+                    <div class="carousel-caption" data-slide="1">
+                        <span>📥 Instalação rápida e fácil</span>
+                    </div>
+                    <div class="carousel-caption" data-slide="2">
+                        <span>🔑 Ativação da licença</span>
+                    </div>
+                    <div class="carousel-caption" data-slide="3">
+                        <span>🚀 Fluxo de trabalho otimizado</span>
+                    </div>
+
+                    <!-- Navegação -->
+                    <button class="carousel-nav prev" id="prevBtn" aria-label="Slide anterior">
+                        <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+                    </button>
+                    <button class="carousel-nav next" id="nextBtn" aria-label="Próximo slide">
+                        <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+                    </button>
+
+                    <!-- Indicadores -->
+                    <div class="carousel-indicators">
+                        <button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
+                        <button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
+                        <button class="carousel-dot" data-slide="2" aria-label="Slide 3"></button>
+                        <button class="carousel-dot" data-slide="3" aria-label="Slide 4"></button>
+                    </div>
+                </div>
             </div>
         </div>
     </section>
@@ -1073,7 +1765,7 @@
                         <svg viewBox="0 0 21 21" fill="currentColor"><path d="M0 0h10v10H0zM11 0h10v10H11zM0 11h10v10H0zM11 11h10v10H11z"/></svg>
                         Microsoft Store
                     </a>
-                    <a href="downloads/ScanIA_Setup_1.0.4.exe" class="plan-cta secondary" download>⬇️ Download Direto</a>
+                    <a href="#" class="plan-cta secondary download-direct-btn">⬇️ Download Direto</a>
                 </div>
             </div>
 
@@ -1081,21 +1773,21 @@
             <div class="pricing-card">
                 <div class="plan-icon">👤</div>
                 <h3 class="plan-name">Solo</h3>
-                <p class="plan-description">Para profissionais autônomos</p>
+                <p class="plan-description">Profissionais individuais</p>
                 <div class="plan-price">
                     <div class="plan-price-monthly">
                         <span class="price-currency">R$</span>
-                        <span class="price-value">99</span>
+                        <span class="price-value">49</span>
                         <span class="price-period">/mês</span>
                     </div>
                     <div class="plan-price-annual">
                         <span class="price-currency">R$</span>
-                        <span class="price-value">990</span>
+                        <span class="price-value">495</span>
                         <span class="price-period">/ano</span>
                     </div>
                 </div>
                 <ul class="plan-features">
-                    <li><span class="check">✓</span> 100 processamentos/mês</li>
+                    <li><span class="check">✓</span> 200 processamentos/mês</li>
                     <li><span class="check">✓</span> 1 dispositivo</li>
                     <li><span class="check">✓</span> 2 modelos de IA</li>
                     <li><span class="check">✓</span> Suporte por email</li>
@@ -1108,22 +1800,22 @@
                 <div class="plan-badge">Mais Popular</div>
                 <div class="plan-icon">🚀</div>
                 <h3 class="plan-name">Starter</h3>
-                <p class="plan-description">Para pequenas empresas</p>
+                <p class="plan-description">Pequenas equipes</p>
                 <div class="plan-price">
                     <div class="plan-price-monthly">
                         <span class="price-currency">R$</span>
-                        <span class="price-value">449</span>
+                        <span class="price-value">224</span>
                         <span class="price-period">/mês</span>
                     </div>
                     <div class="plan-price-annual">
                         <span class="price-currency">R$</span>
-                        <span class="price-value">4.490</span>
+                        <span class="price-value">2.245</span>
                         <span class="price-period">/ano</span>
                     </div>
                 </div>
                 <ul class="plan-features">
-                    <li><span class="check">✓</span> 500 processamentos/mês</li>
-                    <li><span class="check">✓</span> 3 dispositivos</li>
+                    <li><span class="check">✓</span> 1.000 processamentos/mês</li>
+                    <li><span class="check">✓</span> 5 dispositivos</li>
                     <li><span class="check">✓</span> Todos os modelos de IA</li>
                     <li><span class="check">✓</span> Suporte prioritário</li>
                 </ul>
@@ -1134,26 +1826,77 @@
             <div class="pricing-card">
                 <div class="plan-icon">🏢</div>
                 <h3 class="plan-name">Pro</h3>
-                <p class="plan-description">Para empresas maiores</p>
+                <p class="plan-description">Laboratórios e farmácias</p>
                 <div class="plan-price">
                     <div class="plan-price-monthly">
                         <span class="price-currency">R$</span>
-                        <span class="price-value">839</span>
+                        <span class="price-value">419</span>
                         <span class="price-period">/mês</span>
                     </div>
                     <div class="plan-price-annual">
                         <span class="price-currency">R$</span>
-                        <span class="price-value">8.390</span>
+                        <span class="price-value">4.195</span>
                         <span class="price-period">/ano</span>
                     </div>
                 </div>
                 <ul class="plan-features">
-                    <li><span class="check">✓</span> 2.000 processamentos/mês</li>
+                    <li><span class="check">✓</span> 5.000 processamentos/mês</li>
                     <li><span class="check">✓</span> 10 dispositivos</li>
                     <li><span class="check">✓</span> Todos os modelos de IA</li>
                     <li><span class="check">✓</span> Suporte VIP WhatsApp</li>
                 </ul>
                 <a href="#" class="plan-cta secondary">Escolher Pro</a>
+            </div>
+        </div>
+
+        <!-- PLANOS EMPRESARIAIS -->
+        <div class="enterprise-plans">
+            <h3 class="enterprise-title">Precisa de mais? Conheça nossos planos empresariais</h3>
+            <div class="enterprise-grid">
+                <div class="enterprise-card">
+                    <div class="enterprise-header">
+                        <span class="enterprise-icon">🏬</span>
+                        <div>
+                            <h4>Business</h4>
+                            <p>Redes médias com equipes maiores</p>
+                        </div>
+                    </div>
+                    <div class="enterprise-features">
+                        <span>10.000 proc/mês</span>
+                        <span>20 dispositivos</span>
+                    </div>
+                    <div class="enterprise-price">
+                        <div class="enterprise-price-monthly">
+                            <strong>R$ 774</strong><span>/mês</span>
+                        </div>
+                        <div class="enterprise-price-annual">
+                            <strong>R$ 7.745</strong><span>/ano</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5545991195200?text=Olá! Tenho interesse no Plano Business do Scan-IA" class="enterprise-cta" target="_blank">Falar com Vendas</a>
+                </div>
+                <div class="enterprise-card">
+                    <div class="enterprise-header">
+                        <span class="enterprise-icon">🌐</span>
+                        <div>
+                            <h4>Enterprise</h4>
+                            <p>Grandes operações com alto volume</p>
+                        </div>
+                    </div>
+                    <div class="enterprise-features">
+                        <span>30.000 proc/mês</span>
+                        <span>50 dispositivos</span>
+                    </div>
+                    <div class="enterprise-price">
+                        <div class="enterprise-price-monthly">
+                            <strong>R$ 1.745</strong><span>/mês</span>
+                        </div>
+                        <div class="enterprise-price-annual">
+                            <strong>R$ 17.450</strong><span>/ano</span>
+                        </div>
+                    </div>
+                    <a href="https://wa.me/5545991195200?text=Olá! Tenho interesse no Plano Enterprise do Scan-IA" class="enterprise-cta" target="_blank">Falar com Vendas</a>
+                </div>
             </div>
         </div>
     </section>
@@ -1171,6 +1914,55 @@
             </div>
         </div>
     </section>
+
+    <!-- LIGHTBOX PARA GIFs -->
+    <div class="lightbox-overlay" id="gifLightbox">
+        <div class="lightbox-content">
+            <button class="lightbox-close" id="lightboxClose">✕</button>
+            <button class="lightbox-nav prev" id="lightboxPrev">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
+            </button>
+            <img src="" alt="" id="lightboxImage">
+            <button class="lightbox-nav next" id="lightboxNext">
+                <svg viewBox="0 0 24 24" fill="currentColor"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
+            </button>
+            <div class="lightbox-caption" id="lightboxCaption"></div>
+        </div>
+    </div>
+
+    <!-- MODAL DE AVISO DOWNLOAD -->
+    <div class="modal-overlay" id="downloadModal">
+        <div class="modal-content">
+            <button class="modal-close" id="modalClose">✕</button>
+            
+            <div class="modal-icon">⚠️</div>
+            
+            <h3 class="modal-title">Atenção: Aviso do Windows</h3>
+            
+            <p class="modal-text">
+                Como o Scan-IA é um aplicativo <strong>novo no mercado</strong>, o Windows SmartScreen pode exibir um aviso de "aplicativo não reconhecido" durante a instalação.
+            </p>
+            
+            <div class="modal-recommendation">
+                <span class="rec-icon">💡</span>
+                <p>Recomendamos instalar pela Microsoft Store para uma experiência sem avisos!</p>
+            </div>
+            
+            <div class="modal-buttons">
+                <a href="https://apps.microsoft.com/detail/9nz7w4237g5x?hl=pt-BR&gl=BR" class="modal-btn primary" target="_blank" id="modalStoreBtn">
+                    <svg viewBox="0 0 21 21" fill="currentColor"><path d="M0 0h10v10H0zM11 0h10v10H11zM0 11h10v10H0zM11 11h10v10H11z"/></svg>
+                    Instalar pela Microsoft Store
+                </a>
+                <button class="modal-btn secondary" id="modalDownloadBtn">
+                    ⬇️ Continuar com Download Direto
+                </button>
+            </div>
+            
+            <div class="modal-footer">
+                <p>O aplicativo é 100% seguro. O aviso aparece apenas porque ainda não acumulamos downloads suficientes.</p>
+            </div>
+        </div>
+    </div>
 
     <!-- FOOTER -->
     <footer>
@@ -1200,7 +1992,7 @@
             <div class="footer-links">
                 <h4>Contato</h4>
                 <ul>
-                    <li><a href="/cdn-cgi/l/email-protection#a4c7cbcad0c5d0cbe4d7c7c5ca89cdc58ad4d6cb">📧 <span class="__cf_email__" data-cfemail="fc9f9392889d8893bc8f9f9d92d1959dd28c8e93">[email&#160;protected]</span></a></li>
+                    <li><a href="/cdn-cgi/l/email-protection#6d1e181d021f19082d1e0e0c0340040c431d1f02">📧 <span class="__cf_email__" data-cfemail="2e5d5b5e415c5a4b6e5d4d4f4003474f005e5c41">[email&#160;protected]</span></a></li>
                     <li><a href="tel:+5545991195200">📞 (45) 99119-5200</a></li>
                     <li><a href="https://wa.me/5545991195200" target="_blank">💬 WhatsApp</a></li>
                 </ul>
@@ -1219,11 +2011,407 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // ========================================
+        // Navbar Scroll
+        // ========================================
         window.addEventListener('scroll', () => {
             const navbar = document.getElementById('navbar');
             navbar.classList.toggle('scrolled', window.scrollY > 50);
         });
 
+        // ========================================
+        // Billing Toggle
+        // ========================================
         const toggle = document.getElementById('billingToggle');
-        c
+        const pricingGrid = document.getElementById('pricingGrid');
+        const labels = document.querySelectorAll('.toggle-label');
+
+        toggle.addEventListener('click', () => {
+            toggle.classList.toggle('active');
+            pricingGrid.classList.toggle('annual-mode');
+            labels.forEach(label => {
+                label.classList.toggle('active');
+            });
+        });
+
+        // ========================================
+        // GIF Carousel
+        // ========================================
+        const carousel = {
+            currentSlide: 0,
+            totalSlides: 4,
+            autoPlayInterval: null,
+            autoPlayDuration: 8000, // 8 segundos por slide
+            progressInterval: null,
+
+            init() {
+                this.slides = document.getElementById('carouselSlides');
+                this.dots = document.querySelectorAll('.carousel-dot');
+                this.captions = document.querySelectorAll('.carousel-caption');
+                this.progress = document.getElementById('carouselProgress');
+                this.prevBtn = document.getElementById('prevBtn');
+                this.nextBtn = document.getElementById('nextBtn');
+
+                this.bindEvents();
+                this.startAutoPlay();
+            },
+
+            bindEvents() {
+                this.prevBtn.addEventListener('click', () => {
+                    this.prev();
+                    this.resetAutoPlay();
+                });
+
+                this.nextBtn.addEventListener('click', () => {
+                    this.next();
+                    this.resetAutoPlay();
+                });
+
+                this.dots.forEach((dot, index) => {
+                    dot.addEventListener('click', () => {
+                        this.goToSlide(index);
+                        this.resetAutoPlay();
+                    });
+                });
+
+                // Pause on hover
+                const carouselEl = document.getElementById('gifCarousel');
+                carouselEl.addEventListener('mouseenter', () => this.pauseAutoPlay());
+                carouselEl.addEventListener('mouseleave', () => this.startAutoPlay());
+
+                // Touch/Swipe support
+                let touchStartX = 0;
+                let touchEndX = 0;
+
+                carouselEl.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+
+                carouselEl.addEventListener('touchend', (e) => {
+                    touchEndX = e.changedTouches[0].screenX;
+                    this.handleSwipe(touchStartX, touchEndX);
+                }, { passive: true });
+            },
+
+            handleSwipe(startX, endX) {
+                const threshold = 50;
+                const diff = startX - endX;
+
+                if (Math.abs(diff) > threshold) {
+                    if (diff > 0) {
+                        this.next();
+                    } else {
+                        this.prev();
+                    }
+                    this.resetAutoPlay();
+                }
+            },
+
+            goToSlide(index) {
+                this.currentSlide = index;
+                this.updateCarousel();
+            },
+
+            next() {
+                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
+                this.updateCarousel();
+            },
+
+            prev() {
+                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
+                this.updateCarousel();
+            },
+
+            updateCarousel() {
+                // Move slides
+                const translateX = -this.currentSlide * 25;
+                this.slides.style.transform = `translateX(${translateX}%)`;
+
+                // Update dots
+                this.dots.forEach((dot, index) => {
+                    dot.classList.toggle('active', index === this.currentSlide);
+                });
+
+                // Update captions
+                this.captions.forEach((caption, index) => {
+                    caption.classList.toggle('active', index === this.currentSlide);
+                });
+
+                // Reset progress
+                this.resetProgress();
+            },
+
+            startAutoPlay() {
+                this.pauseAutoPlay();
+                this.autoPlayInterval = setInterval(() => {
+                    this.next();
+                }, this.autoPlayDuration);
+                this.startProgress();
+            },
+
+            pauseAutoPlay() {
+                if (this.autoPlayInterval) {
+                    clearInterval(this.autoPlayInterval);
+                    this.autoPlayInterval = null;
+                }
+                if (this.progressInterval) {
+                    clearInterval(this.progressInterval);
+                    this.progressInterval = null;
+                }
+            },
+
+            resetAutoPlay() {
+                this.startAutoPlay();
+            },
+
+            startProgress() {
+                if (this.progressInterval) {
+                    clearInterval(this.progressInterval);
+                }
+
+                let progressWidth = 0;
+                const increment = 100 / (this.autoPlayDuration / 50);
+
+                this.progress.style.width = '0%';
+                
+                this.progressInterval = setInterval(() => {
+                    progressWidth += increment;
+                    this.progress.style.width = `${Math.min(progressWidth, 100)}%`;
+
+                    if (progressWidth >= 100) {
+                        clearInterval(this.progressInterval);
+                    }
+                }, 50);
+            },
+
+            resetProgress() {
+                this.progress.style.width = '0%';
+                if (this.autoPlayInterval) {
+                    this.startProgress();
+                }
+            }
+        };
+
+        // Initialize carousel when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            carousel.init();
+        });
+
+        // ========================================
+        // Modal de Download Direto
+        // ========================================
+        const downloadModal = {
+            modal: null,
+            downloadUrl: 'downloads/ScanIA_Setup_1.1.0.exe',
+
+            init() {
+                this.modal = document.getElementById('downloadModal');
+                this.closeBtn = document.getElementById('modalClose');
+                this.downloadBtn = document.getElementById('modalDownloadBtn');
+                this.storeBtn = document.getElementById('modalStoreBtn');
+                
+                // Botões que abrem o modal
+                const heroBtn = document.getElementById('heroDownloadBtn');
+                const pricingBtns = document.querySelectorAll('.download-direct-btn');
+
+                // Bind events
+                if (heroBtn) {
+                    heroBtn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.open();
+                    });
+                }
+
+                pricingBtns.forEach(btn => {
+                    btn.addEventListener('click', (e) => {
+                        e.preventDefault();
+                        this.open();
+                    });
+                });
+
+                this.closeBtn.addEventListener('click', () => this.close());
+                
+                this.downloadBtn.addEventListener('click', () => {
+                    this.startDownload();
+                    this.close();
+                });
+
+                this.storeBtn.addEventListener('click', () => {
+                    this.close();
+                });
+
+                // Fechar ao clicar fora
+                this.modal.addEventListener('click', (e) => {
+                    if (e.target === this.modal) {
+                        this.close();
+                    }
+                });
+
+                // Fechar com ESC
+                document.addEventListener('keydown', (e) => {
+                    if (e.key === 'Escape' && this.modal.classList.contains('active')) {
+                        this.close();
+                    }
+                });
+            },
+
+            open() {
+                this.modal.classList.add('active');
+                document.body.style.overflow = 'hidden';
+            },
+
+            close() {
+                this.modal.classList.remove('active');
+                document.body.style.overflow = '';
+            },
+
+            startDownload() {
+                const link = document.createElement('a');
+                link.href = this.downloadUrl;
+                link.download = 'ScanIA_Setup_1.0.5.exe';
+                document.body.appendChild(link);
+                link.click();
+                document.body.removeChild(link);
+            }
+        };
+
+        // Initialize modal when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            downloadModal.init();
+        });
+
+        // ========================================
+        // Lightbox para GIFs
+        // ========================================
+        const lightbox = {
+            currentIndex: 0,
+            images: [
+                { src: 'gifs/Transforme-image-em-texto-com-scan-IA.gif', caption: '📄 Transforme imagem em texto' },
+                { src: 'gifs/Instalando.gif', caption: '📥 Instalação rápida e fácil' },
+                { src: 'gifs/Registrando-Scan-IA.gif', caption: '🔑 Ativação da licença' },
+                { src: 'gifs/Usando_o_Scan-IA.gif', caption: '🚀 Fluxo de trabalho otimizado' }
+            ],
+
+            init() {
+                this.overlay = document.getElementById('gifLightbox');
+                this.image = document.getElementById('lightboxImage');
+                this.caption = document.getElementById('lightboxCaption');
+                this.closeBtn = document.getElementById('lightboxClose');
+                this.prevBtn = document.getElementById('lightboxPrev');
+                this.nextBtn = document.getElementById('lightboxNext');
+                this.slides = document.querySelectorAll('.carousel-slide');
+
+                this.bindEvents();
+            },
+
+            bindEvents() {
+                // Clique nos slides para abrir
+                this.slides.forEach((slide, index) => {
+                    slide.addEventListener('click', (e) => {
+                        // Não abrir se clicou nos botões de navegação
+                        if (e.target.closest('.carousel-nav')) return;
+                        this.open(index);
+                    });
+                });
+
+                // Fechar
+                this.closeBtn.addEventListener('click', () => this.close());
+                this.overlay.addEventListener('click', (e) => {
+                    if (e.target === this.overlay) this.close();
+                });
+
+                // Navegação
+                this.prevBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.prev();
+                });
+                this.nextBtn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    this.next();
+                });
+
+                // Teclado
+                document.addEventListener('keydown', (e) => {
+                    if (!this.overlay.classList.contains('active')) return;
+                    
+                    switch(e.key) {
+                        case 'Escape':
+                            this.close();
+                            break;
+                        case 'ArrowLeft':
+                            this.prev();
+                            break;
+                        case 'ArrowRight':
+                            this.next();
+                            break;
+                    }
+                });
+
+                // Swipe em mobile
+                let touchStartX = 0;
+                this.overlay.addEventListener('touchstart', (e) => {
+                    touchStartX = e.changedTouches[0].screenX;
+                }, { passive: true });
+
+                this.overlay.addEventListener('touchend', (e) => {
+                    const touchEndX = e.changedTouches[0].screenX;
+                    const diff = touchStartX - touchEndX;
+                    
+                    if (Math.abs(diff) > 50) {
+                        if (diff > 0) {
+                            this.next();
+                        } else {
+                            this.prev();
+                        }
+                    }
+                }, { passive: true });
+            },
+
+            open(index) {
+                this.currentIndex = index;
+                this.updateImage();
+                this.overlay.classList.add('active');
+                document.body.style.overflow = 'hidden';
+                
+                // Pausar o carrossel
+                if (carousel && carousel.pauseAutoPlay) {
+                    carousel.pauseAutoPlay();
+                }
+            },
+
+            close() {
+                this.overlay.classList.remove('active');
+                document.body.style.overflow = '';
+                
+                // Retomar o carrossel
+                if (carousel && carousel.startAutoPlay) {
+                    carousel.startAutoPlay();
+                }
+            },
+
+            prev() {
+                this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
+                this.updateImage();
+            },
+
+            next() {
+                this.currentIndex = (this.currentIndex + 1) % this.images.length;
+                this.updateImage();
+            },
+
+            updateImage() {
+                const img = this.images[this.currentIndex];
+                this.image.src = img.src;
+                this.image.alt = img.caption;
+                this.caption.textContent = img.caption;
+            }
+        };
+
+        // Initialize lightbox when DOM is ready
+        document.addEventListener('DOMContentLoaded', () => {
+            lightbox.init();
+        });
+    </script>
+</body>
+</html>

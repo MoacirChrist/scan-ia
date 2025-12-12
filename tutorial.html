@@ -490,6 +490,31 @@
         .scroll-top:hover {
             transform: translateY(-5px);
         }
+		/* Botão Microsoft Store */
+		.btn-store {
+			background: linear-gradient(135deg, #00BCF2 0%, #0078D4 100%);
+			color: #fff;
+			padding: 0.9rem 1.75rem;
+			border-radius: 50px;
+			text-decoration: none;
+			font-weight: 600;
+			display: inline-flex;
+			align-items: center;
+			gap: 0.6rem;
+			transition: all 0.3s ease;
+			box-shadow: 0 4px 20px rgba(0, 120, 212, 0.4);
+		}
+
+		.btn-store:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 8px 30px rgba(0, 120, 212, 0.5);
+		}
+
+		.btn-store svg {
+			width: 20px;
+			height: 20px;
+		}
+
     </style>
 </head>
 <body>
@@ -508,7 +533,11 @@
                 <li><a href="ajuda.html">Ajuda</a></li>
                 <li><a href="seguranca.html">Segurança</a></li>
             </ul>
-            <a href="index.html#precos" class="nav-cta">Começar Agora</a>
+            <a href="https://apps.microsoft.com/detail/9nz7w4237g5x?hl=pt-BR&gl=BR" class="btn-store" target="_blank">
+				<svg viewBox="0 0 21 21" fill="currentColor"><path d="M0 0h10v10H0zM11 0h10v10H11zM0 11h10v10H0zM11 11h10v10H11z"/></svg>
+				<span>Microsoft Store</span>
+			</a>
+
         </div>
     </nav>
 
