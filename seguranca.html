@@ -157,9 +157,20 @@
             border-radius: 16px;
             padding: 1.5rem;
             text-align: center;
+            transition: all 0.3s ease;
+        }
+        
+        .badge-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0, 102, 255, 0.2);
+            border-color: rgba(0, 102, 255, 0.3);
         }
 
-        .badge-item .icon { font-size: 2rem; margin-bottom: 0.75rem; }
+        .badge-item .icon { 
+            font-size: 2rem; margin-bottom: 0.75rem; 
+            filter: drop-shadow(0 4px 8px rgba(0, 0, 0, 0.2));
+        }
+        
         .badge-item h3 { font-size: 0.95rem; color: var(--white); margin-bottom: 0.25rem; }
         .badge-item p { font-size: 0.8rem; color: var(--gray-500); }
 
@@ -426,6 +437,7 @@
 			width: 20px;
 			height: 20px;
 		}
+		
 
     </style>
 </head>
@@ -466,7 +478,7 @@
                 <p>Comunicação segura</p>
             </div>
             <div class="badge-item">
-                <div class="icon">â˜ï¸</div>
+                <div class="icon">☁️</div>
                 <h3>Google Cloud</h3>
                 <p>Infraestrutura confiável</p>
             </div>
