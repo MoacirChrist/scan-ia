@@ -144,7 +144,7 @@
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 4rem;
-            align-items: center;
+            align-items: start;
             position: relative;
             z-index: 1;
         }
@@ -170,6 +170,222 @@
         }
 
         .hero-badge::before { content: '⚡'; }
+
+        /* CTA Chamativo - Teste Grátis */
+        .hero-cta-box {
+            background: linear-gradient(135deg, rgba(0, 212, 170, 0.15) 0%, rgba(0, 102, 255, 0.1) 100%);
+            border: 2px solid var(--accent);
+            border-radius: 20px;
+            padding: 1.75rem 2rem;
+            margin-bottom: 2rem;
+            position: relative;
+            overflow: hidden;
+            animation: pulseGlow 3s ease-in-out infinite;
+        }
+
+        @keyframes pulseGlow {
+            0%, 100% { box-shadow: 0 0 20px rgba(0, 212, 170, 0.2); }
+            50% { box-shadow: 0 0 35px rgba(0, 212, 170, 0.4); }
+        }
+
+        .hero-cta-box::before {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(45deg, transparent, rgba(255,255,255,0.03), transparent);
+            animation: shimmer 4s linear infinite;
+        }
+
+        @keyframes shimmer {
+            0% { transform: translateX(-50%) translateY(-50%) rotate(0deg); }
+            100% { transform: translateX(-50%) translateY(-50%) rotate(360deg); }
+        }
+
+        .hero-cta-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .hero-cta-title .icon {
+            font-size: 1.75rem;
+        }
+
+        .hero-cta-subtitle {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+
+        .hero-cta-feature {
+            display: flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--gray-300);
+            font-size: 0.95rem;
+        }
+
+        .hero-cta-feature .check {
+            color: var(--accent);
+            font-weight: bold;
+        }
+
+        /* Tech Badge - Menor e mais discreto */
+        .tech-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: rgba(255, 255, 255, 0.05);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            padding: 0.4rem 0.8rem;
+            border-radius: 30px;
+            font-size: 0.75rem;
+            color: var(--gray-500);
+            margin-top: 1.5rem;
+        }
+
+        .tech-badge img {
+            width: 16px;
+            height: 16px;
+        }
+
+        /* Botão CTA Principal Destacado */
+        .btn-cta-main {
+            background: linear-gradient(135deg, var(--accent) 0%, #00B894 100%);
+            color: var(--dark);
+            padding: 1.1rem 2.5rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 1.1rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 6px 25px rgba(0, 212, 170, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-cta-main::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .btn-cta-main:hover::before {
+            left: 100%;
+        }
+
+        .btn-cta-main:hover {
+            transform: translateY(-4px) scale(1.02);
+            box-shadow: 0 10px 35px rgba(0, 212, 170, 0.5);
+        }
+
+        /* Botão Microsoft Store Pequeno */
+        .btn-store-small {
+            background: linear-gradient(135deg, #00BCF2 0%, #0078D4 100%);
+            color: var(--white);
+            padding: 0.6rem 1.25rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 3px 12px rgba(0, 120, 212, 0.3);
+        }
+
+        .btn-store-small:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 18px rgba(0, 120, 212, 0.4);
+        }
+
+        .btn-store-small svg {
+            width: 14px;
+            height: 14px;
+        }
+
+        /* Linha de botões secundários */
+        .hero-buttons-secondary {
+            display: flex;
+            gap: 0.75rem;
+            align-items: center;
+            flex-wrap: wrap;
+            margin-top: 0.75rem;
+        }
+        /* Botão Microsoft Store Principal */
+        .btn-store-main {
+            background: linear-gradient(135deg, #00BCF2 0%, #0078D4 100%) !important;
+            color: var(--white) !important;
+        }
+
+        .btn-store-main svg {
+            width: 24px;
+            height: 24px;
+        }
+
+        .btn-store-main:hover {
+            box-shadow: 0 10px 35px rgba(0, 120, 212, 0.5) !important;
+        }
+
+        /* Trust Badge - Segurança Microsoft */
+        .hero-store-trust {
+            display: flex;
+            align-items: center;
+            justify-content: flex-start;
+            gap: 0.5rem;
+            margin-top: 0.75rem;
+            margin-bottom: 1.5rem;
+            padding: 0.5rem 1rem;
+            background: rgba(0, 188, 242, 0.1);
+            border-radius: 30px;
+            width: fit-content;
+        }
+
+        .hero-store-trust .trust-icon {
+            font-size: 1rem;
+        }
+
+        .hero-store-trust span:last-child {
+            font-size: 0.85rem;
+            color: #00BCF2;
+            font-weight: 500;
+        }
+
+        /* Links sutis */
+        .btn-link-subtle {
+            color: var(--gray-500);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.3s ease;
+        }
+
+        .btn-link-subtle:hover {
+            color: var(--gray-300);
+            text-decoration: underline;
+        }
+
+        .hero-buttons-secondary .separator {
+            color: var(--gray-700);
+            font-size: 0.75rem;
+        }
 
         .hero h1 {
             font-family: 'Space Grotesk', sans-serif;
@@ -1432,6 +1648,26 @@
         }
 
         @media (max-width: 768px) {
+            /* CTA Box Mobile */
+            .hero-cta-box { padding: 1rem; margin-bottom: 1.5rem; }
+            .hero-cta-title { font-size: 1.1rem; text-align: center; justify-content: center; }
+            .hero-cta-subtitle { flex-direction: column; align-items: center; gap: 0.5rem; }
+            .hero-buttons-secondary { flex-direction: column; align-items: center; gap: 0.5rem; }
+            .hero-buttons-secondary .separator { display: none; }
+            .btn-cta-main { width: 100%; justify-content: center; }
+            /* Store Trust Badge Mobile */
+            .hero-store-trust { 
+                width: 100%; 
+                justify-content: center; 
+                text-align: center;
+                flex-wrap: wrap;
+            }
+            .btn-store-main { width: 100%; justify-content: center; }
+
+            .btn-store-small { width: 100%; justify-content: center; }
+            .btn-download { width: 100%; justify-content: center; }
+            .tech-badge { margin-top: 1rem; }
+
             .lightbox-nav {
                 width: 40px;
                 height: 40px;
@@ -1464,10 +1700,20 @@
             .hero h1 { font-size: 2.75rem; }
             .hero-visual { order: -1; }
             .hero-buttons { justify-content: center; }
+            /* Store Trust Badge Responsive */
+            .hero-store-trust { justify-content: center; }
+
             .problem-grid, .audience-grid { grid-template-columns: 1fr; }
             .footer-container { grid-template-columns: 1fr 1fr; }
             .gif-carousel { max-width: 500px; margin: 0 auto; }
-        }
+        
+            /* CTA Box Responsive */
+            .hero-cta-box { padding: 1.25rem; }
+            .hero-cta-title { font-size: 1.25rem; flex-wrap: wrap; justify-content: center; }
+            .hero-cta-subtitle { justify-content: center; gap: 0.75rem; }
+            .hero-buttons-secondary { justify-content: center; }
+            .tech-badge { justify-content: center; }
+}
 
         @media (max-width: 768px) {
             .nav-links { display: none; }
@@ -1487,7 +1733,6 @@
     </style>
 </head>
 <body>
-    <!-- NAVIGATION -->
     <nav id="navbar">
         <div class="nav-container">
             <a href="index.html" class="logo">
@@ -1509,30 +1754,53 @@
         </div>
     </nav>
 
-    <!-- HERO -->
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <div class="hero-badge">Powered by Google Gemini AI</div>
                 <h1>Agilize seus <span>Orçamentos</span> recebidos pelo WhatsApp</h1>
                 <p class="hero-description">
                     Transcreva receitas e pedidos médicos em segundos. 
                     O Scan-IA extrai e organiza as informações, mesmo de imagens com baixa qualidade ou caligrafia difícil de ler.
                 </p>
+
+                <div class="hero-cta-box">
+                    <div class="hero-cta-title">
+                        <span class="icon">🚀</span>
+                        Teste grátis agora mesmo!
+                    </div>
+                    <div class="hero-cta-subtitle">
+                        <span class="hero-cta-feature"><span class="check">✓</span> Sem cartão de crédito</span>
+                        <span class="hero-cta-feature"><span class="check">✓</span> Sem cadastro</span>
+                        <span class="hero-cta-feature"><span class="check">✓</span> 20 leituras grátis/mês</span>
+                    </div>
+                </div>
+
                 <div class="hero-buttons">
-                    <a href="https://apps.microsoft.com/detail/9nz7w4237g5x?hl=pt-BR&gl=BR" class="btn-store" target="_blank">
+                    <a href="https://apps.microsoft.com/detail/9nz7w4237g5x?hl=pt-BR&gl=BR" class="btn-cta-main btn-store-main" target="_blank">
                         <svg viewBox="0 0 21 21" fill="currentColor"><path d="M0 0h10v10H0zM11 0h10v10H11zM0 11h10v10H0zM11 11h10v10H11z"/></svg>
-                        <span>Microsoft Store</span>
+                        <span>Instalar da Microsoft Store</span>
                     </a>
-                    <a href="#" class="btn-download" id="heroDownloadBtn">
-                        <span>⬇️</span>
-                        <span>Download Direto</span>
+                </div>
+                
+                <div class="hero-store-trust">
+                    <span class="trust-icon">🛡️</span>
+                    <span>Instalação segura e verificada pela Microsoft</span>
+                </div>
+                
+                <div class="hero-buttons-secondary">
+                    <a href="#" class="btn-link-subtle" id="heroDownloadBtn">
+                        Prefere download direto? Clique aqui
                     </a>
-                    <a href="sobre.html" class="btn-secondary">Saiba Mais</a>
+                    <span class="separator">•</span>
+                    <a href="sobre.html" class="btn-link-subtle">Saiba mais</a>
+                </div>
+
+                <div class="tech-badge">
+                    <span>⚡</span>
+                    <span>Powered by Google Gemini AI</span>
                 </div>
             </div>
 
-            <!-- CARROSSEL DE GIFs -->
             <div class="hero-visual">
                 <div class="gif-carousel" id="gifCarousel">
                     <div class="carousel-progress" id="carouselProgress"></div>
@@ -1540,7 +1808,7 @@
                     <div class="carousel-container">
                         <div class="carousel-slides" id="carouselSlides">
                             <div class="carousel-slide" data-index="0">
-                                <img src="gifs/Transforme-image-em-texto-com-scan-IA.gif" alt="Transforme imagem em texto com Scan-IA" loading="eager">
+                                <img src="gifs/Scan-IA.gif" alt="Transforme imagem em texto com Scan-IA" loading="eager">
                                 <span class="lightbox-hint">🔍 Clique para ampliar</span>
                             </div>
                             <div class="carousel-slide" data-index="1">
@@ -1552,13 +1820,12 @@
                                 <span class="lightbox-hint">🔍 Clique para ampliar</span>
                             </div>
                             <div class="carousel-slide" data-index="3">
-                                <img src="gifs/Usando-o-Scan-IA.gif" alt="Usando o Scan-IA no dia a dia" loading="lazy">
+                                <img src="gifs/Usando_o_Scan-IA.gif" alt="Usando o Scan-IA no dia a dia" loading="lazy">
                                 <span class="lightbox-hint">🔍 Clique para ampliar</span>
                             </div>
                         </div>
                     </div>
 
-                    <!-- Captions -->
                     <div class="carousel-caption active" data-slide="0">
                         <span>📄 Transforme imagem em texto</span>
                     </div>
@@ -1572,7 +1839,6 @@
                         <span>🚀 Fluxo de trabalho otimizado</span>
                     </div>
 
-                    <!-- Navegação -->
                     <button class="carousel-nav prev" id="prevBtn" aria-label="Slide anterior">
                         <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
                     </button>
@@ -1580,7 +1846,6 @@
                         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
                     </button>
 
-                    <!-- Indicadores -->
                     <div class="carousel-indicators">
                         <button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
                         <button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
@@ -1592,7 +1857,6 @@
         </div>
     </section>
 
-    <!-- PROBLEM -->
     <section class="problem">
         <div class="section-header">
             <span class="section-tag">O Desafio</span>
@@ -1625,7 +1889,6 @@
         </div>
     </section>
 
-    <!-- HOW IT WORKS -->
     <section class="how-it-works" id="como-funciona">
         <div class="section-header">
             <span class="section-tag">A Solução</span>
@@ -1666,7 +1929,6 @@
         </div>
     </section>
 
-    <!-- FEATURES -->
     <section class="features" id="funcionalidades">
         <div class="section-header">
             <span class="section-tag">Benefícios</span>
@@ -1696,7 +1958,6 @@
         </div>
     </section>
 
-    <!-- AUDIENCE -->
     <section class="audience">
         <div class="section-header">
             <span class="section-tag">Para quem é</span>
@@ -1721,7 +1982,6 @@
         </div>
     </section>
 
-    <!-- PRICING -->
     <section class="pricing" id="precos">
         <div class="section-header">
             <span class="section-tag">Planos</span>
@@ -1737,7 +1997,6 @@
         </div>
 
         <div class="pricing-grid" id="pricingGrid">
-            <!-- FREE -->
             <div class="pricing-card">
                 <div class="plan-icon">🆓</div>
                 <h3 class="plan-name">Free</h3>
@@ -1769,7 +2028,6 @@
                 </div>
             </div>
 
-            <!-- SOLO -->
             <div class="pricing-card">
                 <div class="plan-icon">👤</div>
                 <h3 class="plan-name">Solo</h3>
@@ -1795,7 +2053,6 @@
                 <a href="#" class="plan-cta secondary">Escolher Solo</a>
             </div>
 
-            <!-- STARTER -->
             <div class="pricing-card featured">
                 <div class="plan-badge">Mais Popular</div>
                 <div class="plan-icon">🚀</div>
@@ -1822,7 +2079,6 @@
                 <a href="#" class="plan-cta primary">Escolher Starter</a>
             </div>
 
-            <!-- PRO -->
             <div class="pricing-card">
                 <div class="plan-icon">🏢</div>
                 <h3 class="plan-name">Pro</h3>
@@ -1849,7 +2105,6 @@
             </div>
         </div>
 
-        <!-- PLANOS EMPRESARIAIS -->
         <div class="enterprise-plans">
             <h3 class="enterprise-title">Precisa de mais? Conheça nossos planos empresariais</h3>
             <div class="enterprise-grid">
@@ -1901,7 +2156,6 @@
         </div>
     </section>
 
-    <!-- CTA -->
     <section class="cta-section">
         <div class="cta-content">
             <h2 class="cta-title">Simplifique seu atendimento hoje</h2>
@@ -1915,7 +2169,6 @@
         </div>
     </section>
 
-    <!-- LIGHTBOX PARA GIFs -->
     <div class="lightbox-overlay" id="gifLightbox">
         <div class="lightbox-content">
             <button class="lightbox-close" id="lightboxClose">✕</button>
@@ -1930,7 +2183,6 @@
         </div>
     </div>
 
-    <!-- MODAL DE AVISO DOWNLOAD -->
     <div class="modal-overlay" id="downloadModal">
         <div class="modal-content">
             <button class="modal-close" id="modalClose">✕</button>
@@ -1964,7 +2216,6 @@
         </div>
     </div>
 
-    <!-- FOOTER -->
     <footer>
         <div class="footer-container">
             <div class="footer-brand">
@@ -2203,7 +2454,7 @@
         // ========================================
         const downloadModal = {
             modal: null,
-            downloadUrl: 'downloads/ScanIA_Setup_1.1.0.exe',
+            downloadUrl: 'downloads/ScanIA_Setup_1.0.5.exe',
 
             init() {
                 this.modal = document.getElementById('downloadModal');
@@ -2287,7 +2538,7 @@
         const lightbox = {
             currentIndex: 0,
             images: [
-                { src: 'gifs/Transforme-image-em-texto-com-scan-IA.gif', caption: '📄 Transforme imagem em texto' },
+                { src: 'gifs/Scan-IA.gif', caption: '📄 Transforme imagem em texto' },
                 { src: 'gifs/Instalando.gif', caption: '📥 Instalação rápida e fácil' },
                 { src: 'gifs/Registrando-Scan-IA.gif', caption: '🔑 Ativação da licença' },
                 { src: 'gifs/Usando_o_Scan-IA.gif', caption: '🚀 Fluxo de trabalho otimizado' }
