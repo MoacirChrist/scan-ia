@@ -404,8 +404,8 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: minmax(280px, 2fr) repeat(4, minmax(160px, 1fr));
+            gap: 2rem;
         }
 
         .footer-brand p {
@@ -515,6 +515,82 @@
 			height: 20px;
 		}
 
+        /* --- Fix: Estilos do Modal de Contato --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 2000;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: var(--dark-blue);
+            padding: 2.5rem;
+            border-radius: 24px;
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: none;
+            border: none;
+            color: var(--gray-500);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .modal-close:hover { color: var(--white); }
+        
+        .modal-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .modal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .modal-text {
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+        }
+
     </style>
 </head>
 <body>
@@ -532,6 +608,7 @@
                 <li><a href="tutorial.html" class="active">Como Usar</a></li>
                 <li><a href="ajuda.html">Ajuda</a></li>
                 <li><a href="seguranca.html">Segurança</a></li>
+                <li><a href="privacy.html">Privacidade</a></li>
             </ul>
             <a href="https://apps.microsoft.com/detail/9nz7w4237g5x?hl=pt-BR&gl=BR" class="btn-store" target="_blank">
 				<svg viewBox="0 0 21 21" fill="currentColor"><path d="M0 0h10v10H0zM11 0h10v10H11zM0 11h10v10H0zM11 11h10v10H11z"/></svg>
@@ -875,7 +952,7 @@
             <div class="footer-links">
                 <h4>Contato</h4>
                 <ul>
-                    <li><a href="/cdn-cgi/l/email-protection#83e0ecedf7e2f7ecc3f0e0e2edaeeae2adf3f1ec">📧 <span class="__cf_email__" data-cfemail="c3a0acadb7a2b7ac83b0a0a2adeeaaa2edb3b1ac">[email&#160;protected]</span></a></li>
+                    <li><a href="mailto:contato@scan-ia.pro">📧 contato@scan-ia.pro</a></li>
                     <li><a href="tel:+5545991195200">📞 (45) 99119-5200</a></li>
                     <li><a href="https://wa.me/5545991195200" target="_blank">💬 WhatsApp</a></li>
                 </ul>
@@ -897,18 +974,139 @@
     <!-- SCROLL TO TOP -->
     <a href="#" class="scroll-top" id="scrollTop">↑</a>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
         // Scroll to top button
         const scrollTop = document.getElementById('scrollTop');
         
         window.addEventListener('scroll', () => {
             if (window.scrollY > 500) {
                 scrollTop.classList.add('visible');
+            }
             } else {
                 scrollTop.classList.remove('visible');
             }
         });
 
-        // Smooth scroll for anchor links
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('clic
+        // Clique para voltar ao topo
+        scrollTop.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
+    </script>
+
+
+<div class="modal-overlay" id="contactModal" style="z-index: 2000;">
+    <div class="modal-content" style="max-width: 500px;">
+        <button class="modal-close" id="contactClose">✕</button>
+        
+        <div class="modal-icon" style="background: linear-gradient(135deg, #0066FF, #00D4AA); box-shadow: 0 8px 30px rgba(0, 102, 255, 0.3);">📧</div>
+        
+        <h3 class="modal-title">Fale Conosco</h3>
+        <p class="modal-text">Dúvidas? Preencha abaixo e responderemos no seu e-mail.</p>
+
+        <form id="contactForm" style="text-align: left;">
+            <div style="margin-bottom: 1rem;">
+                <label style="color: #A3B1C6; font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Seu Nome</label>
+                <input type="text" name="nome" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+                <label style="color: #A3B1C6; font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Seu E-mail</label>
+                <input type="email" name="email" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <label style="color: #A3B1C6; font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Mensagem</label>
+                <textarea name="mensagem" rows="4" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; resize: vertical; outline: none;"></textarea>
+            </div>
+
+            <button type="submit" id="btnSubmitContact" class="btn-store" style="width: 100%; justify-content: center;"><span>Enviar Mensagem</span></button>
+            <p id="formStatus" style="margin-top: 1rem; text-align: center; font-size: 0.9rem; min-height: 20px;"></p>
+        </form>
+    </div>
+</div>
+
+<script>
+const contactFormHandler = {
+        // 1. COLE SUA NOVA URL ABAIXO
+        url: 'https://script.google.com/macros/s/AKfycbyz17BFtt1dXF0WDD4y5PeZ8-YyVbmlo1iO-LT1n5kkBv--cQ-5CAVVq4DHfMgnUwq-/exec',
+        
+        init() {
+            const form = document.getElementById('contactForm');
+            const modal = document.getElementById('contactModal');
+            
+            if (!form || !modal) return;
+    
+            // Gatilho para abrir modal em links de email
+            document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                });
+            });
+    
+            // Handler de envio
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = document.getElementById('btnSubmitContact');
+                const status = document.getElementById('formStatus');
+                
+                btn.disabled = true;
+                btn.innerHTML = 'Enviando...';
+    
+                // Senior Note: Usando URLSearchParams para garantir que o 
+                // Google Apps Script popule o e.parameter corretamente com no-cors
+                const formData = new FormData(form);
+                const params = new URLSearchParams();
+                for (const pair of formData) {
+                    params.append(pair[0], pair[1]);
+                }
+    
+                try {
+                    await fetch(this.url, {
+                        method: 'POST',
+                        mode: 'no-cors', 
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: params.toString()
+                    });
+    
+                    // Sucesso (Assumido por no-cors)
+                    status.style.color = '#00D4AA';
+                    status.innerText = '✓ Mensagem enviada com sucesso!';
+                    form.reset();
+                    
+                    setTimeout(() => { 
+                        modal.classList.remove('active');
+                        btn.disabled = false;
+                        btn.innerHTML = 'Enviar Mensagem';
+                        status.innerText = '';
+                    }, 2500);
+    
+                } catch (err) {
+                    console.error("Erro no fetch:", err);
+                    status.style.color = '#FF4757';
+                    status.innerText = 'Erro ao enviar. Tente novamente.';
+                    btn.disabled = false;
+                    btn.innerHTML = 'Enviar Mensagem';
+                }
+            });
+    
+            // Fechar modal (botão ✕)
+            document.getElementById('contactClose')?.addEventListener('click', () => modal.classList.remove('active'));
+            
+            // Fechar clicando fora
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+        }
+    };
+
+document.addEventListener('DOMContentLoaded', () => {
+    contactFormHandler.init();
+});
+</script>
+
+</body>
+</html>

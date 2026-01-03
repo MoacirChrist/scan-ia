@@ -22,6 +22,7 @@
             --gradient-card: linear-gradient(180deg, rgba(255,255,255,0.08) 0%, rgba(255,255,255,0.02) 100%);
             --shadow-lg: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
             --shadow-glow: 0 0 60px rgba(0, 102, 255, 0.15);
+            --green: #10B981; 
         }
 
         * { margin: 0; padding: 0; box-sizing: border-box; }
@@ -1291,9 +1292,11 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: minmax(280px, 2fr) repeat(4, minmax(160px, 1fr));
+            gap: 2rem;
         }
+
+
 
         .footer-brand p {
             color: var(--gray-500);
@@ -1730,6 +1733,60 @@
             .enterprise-grid { grid-template-columns: 1fr; }
             .enterprise-title { font-size: 1.1rem; }
         }
+        .hero-privacy-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(16, 185, 129, 0.1); /* Fundo verde bem suave */
+            border: 1px solid rgba(16, 185, 129, 0.25);
+            padding: 0.3rem 0.75rem; /* Padding reduzido para ficar mais delicado */
+            border-radius: 50px;
+            margin-bottom: 1.5rem;
+            width: fit-content;
+        }
+        
+        .hero-privacy-badge span {
+            color: var(--green);
+            font-weight: 600;
+            font-size: 0.8rem; /* Fonte menor para o texto do cadeado */
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+        }
+        
+        .hero-features-list {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin-bottom: 2rem;
+            margin-top: 1rem;
+        }
+        
+        .hero-feature-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--gray-300);
+            font-size: 0.95rem;
+        }
+        
+        /* Aqui controlamos o tamanho do "checked" (ícones) */
+        .hero-feature-item svg {
+            width: 36px;  /* Tamanho reduzido e fixo */
+            height: 36px;
+            color: var(--green);
+            flex-shrink: 0;
+        }
+        
+        .store-proof {
+            margin-top: .5rem;
+            font-size: .85rem;
+            color: var(--gray-300);
+            opacity: .9;
+        }
+        .store-proof strong {
+            color: #00BCF2;
+        }
+
     </style>
 </head>
 <body>
@@ -1746,6 +1803,7 @@
                 <li><a href="tutorial.html">Como Usar</a></li>
                 <li><a href="ajuda.html">Ajuda</a></li>
                 <li><a href="seguranca.html">Segurança</a></li>
+                <li><a href="privacy.html">Privacidade</a></li>
             </ul>
             <a href="https://apps.microsoft.com/detail/9NZ7W4237G5X?hl=pt-br&gl=BR&ocid=pdpshare" class="btn-store" target="_blank">
 				<svg viewBox="0 0 21 21" fill="currentColor"><path d="M0 0h10v10H0zM11 0h10v10H11zM0 11h10v10H0zM11 11h10v10H11z"/></svg>
@@ -1753,54 +1811,67 @@
 			</a>
         </div>
     </nav>
-
+        
     <section class="hero">
         <div class="hero-container">
             <div class="hero-content">
-                <h1>Agilize seus <span>Orçamentos</span> recebidos pelo WhatsApp</h1>
+                
+                <div class="hero-privacy-badge">
+                    <span style="font-size: 1rem;">🔒</span> 
+                    <span>Privacidade Absoluta</span>
+                </div>
+    
+                <h1>
+                    <span>Orçamentos rápidos e seguros com IA.</span>
+                </h1>
+    
                 <p class="hero-description">
-                    Transcreva receitas e pedidos médicos em segundos. 
-                    O Scan-IA extrai e organiza as informações, mesmo de imagens com baixa qualidade ou caligrafia difícil de ler.
+                    Transcreva receitas médicas do WhatsApp em segundos. 
+                    Nossa IA processa as informações e <strong>descarta a imagem imediatamente</strong>. 
+                    Seus dados e de seus pacientes nunca ficam salvos em nossos servidores.
                 </p>
-
-                <div class="hero-cta-box">
-                    <div class="hero-cta-title">
-                        <span class="icon">🚀</span>
-                        Teste grátis agora mesmo!
+    
+                <div class="hero-features-list">
+                    <div class="hero-feature-item">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" /></svg>
+                        <span>Zero armazenamento de dados médicos</span>
                     </div>
-                    <div class="hero-cta-subtitle">
-                        <span class="hero-cta-feature"><span class="check">✓</span> Sem cartão de crédito</span>
-                        <span class="hero-cta-feature"><span class="check">✓</span> Sem cadastro</span>
-                        <span class="hero-cta-feature"><span class="check">✓</span> 20 leituras grátis/mês</span>
+                    <div class="hero-feature-item">
+                        <svg fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg>
+                        <span>Processamento criptografado e anônimo</span>
                     </div>
                 </div>
-
+    
                 <div class="hero-buttons">
-                    <a href="https://apps.microsoft.com/detail/9nz7w4237g5x?hl=pt-BR&gl=BR" class="btn-cta-main btn-store-main" target="_blank">
+                    <a href="https://apps.microsoft.com/detail/9nz7w4237g5x?hl=pt-BR&gl=BR" class="btn-cta-main btn-store" target="_blank">
                         <svg viewBox="0 0 21 21" fill="currentColor"><path d="M0 0h10v10H0zM11 0h10v10H11zM0 11h10v10H0zM11 11h10v10H11z"/></svg>
-                        <span>Instalar da Microsoft Store</span>
+                        <span>Baixar Seguro na Microsoft Store</span>
                     </a>
                 </div>
                 
                 <div class="hero-store-trust">
                     <span class="trust-icon">🛡️</span>
-                    <span>Instalação segura e verificada pela Microsoft</span>
+                    <span>Instalação verificada e livre de vírus</span>
                 </div>
                 
+                <div class="store-proof">
+                    Distribuído pela <strong>Microsoft Store</strong> — publicado após validações e requisitos de segurança da plataforma.
+                </div>
+
                 <div class="hero-buttons-secondary">
                     <a href="#" class="btn-link-subtle" id="heroDownloadBtn">
                         Prefere download direto? Clique aqui
                     </a>
                     <span class="separator">•</span>
-                    <a href="sobre.html" class="btn-link-subtle">Saiba mais</a>
+                    <a href="seguranca.html" class="btn-link-subtle" style="color: var(--accent);">Entenda nossa segurança</a>
                 </div>
-
+    
                 <div class="tech-badge">
                     <span>⚡</span>
                     <span>Powered by Google Gemini AI</span>
                 </div>
             </div>
-
+    
             <div class="hero-visual">
                 <div class="gif-carousel" id="gifCarousel">
                     <div class="carousel-progress" id="carouselProgress"></div>
@@ -1809,23 +1880,19 @@
                         <div class="carousel-slides" id="carouselSlides">
                             <div class="carousel-slide" data-index="0">
                                 <img src="gifs/Scan-IA.gif" alt="Transforme imagem em texto com Scan-IA" loading="eager">
-                                <span class="lightbox-hint">🔍 Clique para ampliar</span>
                             </div>
                             <div class="carousel-slide" data-index="1">
                                 <img src="gifs/Instalando.gif" alt="Instalando o Scan-IA" loading="lazy">
-                                <span class="lightbox-hint">🔍 Clique para ampliar</span>
                             </div>
                             <div class="carousel-slide" data-index="2">
                                 <img src="gifs/Registrando-Scan-IA.gif" alt="Registrando licença do Scan-IA" loading="lazy">
-                                <span class="lightbox-hint">🔍 Clique para ampliar</span>
                             </div>
                             <div class="carousel-slide" data-index="3">
-                                <img src="gifs/Usando_o_Scan-IA.gif" alt="Usando o Scan-IA no dia a dia" loading="lazy">
-                                <span class="lightbox-hint">🔍 Clique para ampliar</span>
+                                <img src="gifs/Usando-o-Scan-IA.gif" alt="Usando o Scan-IA no dia a dia" loading="lazy">
                             </div>
                         </div>
                     </div>
-
+    
                     <div class="carousel-caption active" data-slide="0">
                         <span>📄 Transforme imagem em texto</span>
                     </div>
@@ -1838,14 +1905,14 @@
                     <div class="carousel-caption" data-slide="3">
                         <span>🚀 Fluxo de trabalho otimizado</span>
                     </div>
-
+    
                     <button class="carousel-nav prev" id="prevBtn" aria-label="Slide anterior">
                         <svg viewBox="0 0 24 24"><path d="M15.41 7.41L14 6l-6 6 6 6 1.41-1.41L10.83 12z"/></svg>
                     </button>
                     <button class="carousel-nav next" id="nextBtn" aria-label="Próximo slide">
                         <svg viewBox="0 0 24 24"><path d="M8.59 16.59L10 18l6-6-6-6-1.41 1.41L13.17 12z"/></svg>
                     </button>
-
+    
                     <div class="carousel-indicators">
                         <button class="carousel-dot active" data-slide="0" aria-label="Slide 1"></button>
                         <button class="carousel-dot" data-slide="1" aria-label="Slide 2"></button>
@@ -1922,8 +1989,8 @@
             <div class="step">
                 <div class="step-number">4</div>
                 <div class="step-content">
-                    <h3>Copie e cole no seu sistema</h3>
-                    <p>Clique sobre um item para copiar para a área de transferência. Ele muda de cor indicando que já foi utilizado. Cole diretamente no seu sistema de orçamentos.</p>
+                    <h3>Copie e cole ou arraste e solte no seu sistema</h3>
+                    <p>Clique sobre um item para copiar para a área de transferênciam ou clue e segure. Ele muda de cor indicando que já foi utilizado. Cole diretamente no seu sistema de orçamentos ou arraste e solte no seu istema de orçamento.</p>
                 </div>
             </div>
         </div>
@@ -2240,10 +2307,11 @@
                     <li><a href="seguranca.html">Segurança</a></li>
                 </ul>
             </div>
-            <div class="footer-links">
+           <div class="footer-links">
                 <h4>Contato</h4>
                 <ul>
-                    <li><a href="/cdn-cgi/l/email-protection#6d1e181d021f19082d1e0e0c0340040c431d1f02">📧 <span class="__cf_email__" data-cfemail="2e5d5b5e415c5a4b6e5d4d4f4003474f005e5c41">[email&#160;protected]</span></a></li>
+                    <li><a href="mailto:contato@scan-ia.pro">📧 contato@scan-ia.pro</a></li>
+                    
                     <li><a href="tel:+5545991195200">📞 (45) 99119-5200</a></li>
                     <li><a href="https://wa.me/5545991195200" target="_blank">💬 WhatsApp</a></li>
                 </ul>
@@ -2262,407 +2330,282 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        // ========================================
-        // Navbar Scroll
-        // ========================================
-        window.addEventListener('scroll', () => {
-            const navbar = document.getElementById('navbar');
-            navbar.classList.toggle('scrolled', window.scrollY > 50);
-        });
+    <script>
+    // ========================================
+    // CENTRALIZADOR DE INICIALIZAÇÃO
+    // ========================================
+    document.addEventListener('DOMContentLoaded', () => {
+        carousel.init();
+        lightbox.init();
+        downloadModal.init();
+        contactFormHandler.init(); // Novo handler organizado
+    });
 
-        // ========================================
-        // Billing Toggle
-        // ========================================
-        const toggle = document.getElementById('billingToggle');
-        const pricingGrid = document.getElementById('pricingGrid');
-        const labels = document.querySelectorAll('.toggle-label');
-
-        toggle.addEventListener('click', () => {
-            toggle.classList.toggle('active');
-            pricingGrid.classList.toggle('annual-mode');
-            labels.forEach(label => {
-                label.classList.toggle('active');
+    // ========================================
+    // CARROSSEL DE GIFs
+    // ========================================
+    const carousel = {
+        currentSlide: 0,
+        totalSlides: 4,
+        autoPlayInterval: null,
+        autoPlayDelay: 6000,
+        
+        init() {
+            this.slides = document.getElementById('carouselSlides');
+            this.dots = document.querySelectorAll('.carousel-dot');
+            this.captions = document.querySelectorAll('.carousel-caption');
+            this.progress = document.getElementById('carouselProgress');
+            
+            if (!this.slides) return;
+            
+            document.getElementById('prevBtn')?.addEventListener('click', () => this.prev());
+            document.getElementById('nextBtn')?.addEventListener('click', () => this.next());
+            
+            this.dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => this.goToSlide(index));
             });
-        });
 
-        // ========================================
-        // GIF Carousel
-        // ========================================
-        const carousel = {
-            currentSlide: 0,
-            totalSlides: 4,
-            autoPlayInterval: null,
-            autoPlayDuration: 8000, // 8 segundos por slide
-            progressInterval: null,
+            // Clique no slide para abrir Lightbox
+            document.querySelectorAll('.carousel-slide').forEach((slide, index) => {
+                slide.addEventListener('click', () => lightbox.open(index));
+            });
+            
+            this.startAutoPlay();
+        },
+        
+        goToSlide(index) {
+            this.currentSlide = index;
+            const offset = -index * 25;
+            this.slides.style.transform = `translateX(${offset}%)`;
+            
+            this.dots.forEach((dot, i) => dot.classList.toggle('active', i === index));
+            this.captions.forEach((cap, i) => cap.classList.toggle('active', i === index));
+            this.resetProgress();
+        },
+        
+        next() { this.goToSlide((this.currentSlide + 1) % this.totalSlides); },
+        prev() { this.goToSlide((this.currentSlide - 1 + this.totalSlides) % this.totalSlides); },
+        
+        startAutoPlay() {
+            this.stopAutoPlay();
+            this.autoPlayInterval = setInterval(() => this.next(), this.autoPlayDelay);
+            this.startProgress();
+        },
+        
+        stopAutoPlay() {
+            if (this.autoPlayInterval) clearInterval(this.autoPlayInterval);
+            this.stopProgress();
+        },
 
-            init() {
-                this.slides = document.getElementById('carouselSlides');
-                this.dots = document.querySelectorAll('.carousel-dot');
-                this.captions = document.querySelectorAll('.carousel-caption');
-                this.progress = document.getElementById('carouselProgress');
-                this.prevBtn = document.getElementById('prevBtn');
-                this.nextBtn = document.getElementById('nextBtn');
+        startProgress() {
+            if (!this.progress) return;
+            this.progress.style.transition = 'none';
+            this.progress.style.width = '0%';
+            setTimeout(() => {
+                this.progress.style.transition = `width ${this.autoPlayDelay}ms linear`;
+                this.progress.style.width = '100%';
+            }, 50);
+        },
 
-                this.bindEvents();
-                this.startAutoPlay();
-            },
-
-            bindEvents() {
-                this.prevBtn.addEventListener('click', () => {
-                    this.prev();
-                    this.resetAutoPlay();
-                });
-
-                this.nextBtn.addEventListener('click', () => {
-                    this.next();
-                    this.resetAutoPlay();
-                });
-
-                this.dots.forEach((dot, index) => {
-                    dot.addEventListener('click', () => {
-                        this.goToSlide(index);
-                        this.resetAutoPlay();
-                    });
-                });
-
-                // Pause on hover
-                const carouselEl = document.getElementById('gifCarousel');
-                carouselEl.addEventListener('mouseenter', () => this.pauseAutoPlay());
-                carouselEl.addEventListener('mouseleave', () => this.startAutoPlay());
-
-                // Touch/Swipe support
-                let touchStartX = 0;
-                let touchEndX = 0;
-
-                carouselEl.addEventListener('touchstart', (e) => {
-                    touchStartX = e.changedTouches[0].screenX;
-                }, { passive: true });
-
-                carouselEl.addEventListener('touchend', (e) => {
-                    touchEndX = e.changedTouches[0].screenX;
-                    this.handleSwipe(touchStartX, touchEndX);
-                }, { passive: true });
-            },
-
-            handleSwipe(startX, endX) {
-                const threshold = 50;
-                const diff = startX - endX;
-
-                if (Math.abs(diff) > threshold) {
-                    if (diff > 0) {
-                        this.next();
-                    } else {
-                        this.prev();
-                    }
-                    this.resetAutoPlay();
-                }
-            },
-
-            goToSlide(index) {
-                this.currentSlide = index;
-                this.updateCarousel();
-            },
-
-            next() {
-                this.currentSlide = (this.currentSlide + 1) % this.totalSlides;
-                this.updateCarousel();
-            },
-
-            prev() {
-                this.currentSlide = (this.currentSlide - 1 + this.totalSlides) % this.totalSlides;
-                this.updateCarousel();
-            },
-
-            updateCarousel() {
-                // Move slides
-                const translateX = -this.currentSlide * 25;
-                this.slides.style.transform = `translateX(${translateX}%)`;
-
-                // Update dots
-                this.dots.forEach((dot, index) => {
-                    dot.classList.toggle('active', index === this.currentSlide);
-                });
-
-                // Update captions
-                this.captions.forEach((caption, index) => {
-                    caption.classList.toggle('active', index === this.currentSlide);
-                });
-
-                // Reset progress
-                this.resetProgress();
-            },
-
-            startAutoPlay() {
-                this.pauseAutoPlay();
-                this.autoPlayInterval = setInterval(() => {
-                    this.next();
-                }, this.autoPlayDuration);
-                this.startProgress();
-            },
-
-            pauseAutoPlay() {
-                if (this.autoPlayInterval) {
-                    clearInterval(this.autoPlayInterval);
-                    this.autoPlayInterval = null;
-                }
-                if (this.progressInterval) {
-                    clearInterval(this.progressInterval);
-                    this.progressInterval = null;
-                }
-            },
-
-            resetAutoPlay() {
-                this.startAutoPlay();
-            },
-
-            startProgress() {
-                if (this.progressInterval) {
-                    clearInterval(this.progressInterval);
-                }
-
-                let progressWidth = 0;
-                const increment = 100 / (this.autoPlayDuration / 50);
-
+        stopProgress() {
+            if (this.progress) {
+                this.progress.style.transition = 'none';
                 this.progress.style.width = '0%';
-                
-                this.progressInterval = setInterval(() => {
-                    progressWidth += increment;
-                    this.progress.style.width = `${Math.min(progressWidth, 100)}%`;
-
-                    if (progressWidth >= 100) {
-                        clearInterval(this.progressInterval);
-                    }
-                }, 50);
-            },
-
-            resetProgress() {
-                this.progress.style.width = '0%';
-                if (this.autoPlayInterval) {
-                    this.startProgress();
-                }
             }
-        };
+        },
 
-        // Initialize carousel when DOM is ready
-        document.addEventListener('DOMContentLoaded', () => {
-            carousel.init();
-        });
+        resetProgress() { this.stopProgress(); this.startProgress(); }
+    };
 
-        // ========================================
-        // Modal de Download Direto
-        // ========================================
-        const downloadModal = {
-            modal: null,
-            downloadUrl: 'downloads/ScanIA_Setup_1.0.5.exe',
+    // ========================================
+    // LIGHTBOX
+    // ========================================
+    const lightbox = {
+        currentIndex: 0,
+        images: [],
+        captions: [],
+        
+        init() {
+            this.overlay = document.getElementById('gifLightbox');
+            if (!this.overlay) return;
 
-            init() {
-                this.modal = document.getElementById('downloadModal');
-                this.closeBtn = document.getElementById('modalClose');
-                this.downloadBtn = document.getElementById('modalDownloadBtn');
-                this.storeBtn = document.getElementById('modalStoreBtn');
+            this.imgElement = document.getElementById('lightboxImage');
+            this.capElement = document.getElementById('lightboxCaption');
+
+            document.querySelectorAll('.carousel-slide img').forEach((img, i) => {
+                this.images.push(img.src);
+                const cap = document.querySelector(`.carousel-caption[data-slide="${i}"] span`);
+                this.captions.push(cap ? cap.textContent : '');
+            });
+
+            document.getElementById('lightboxClose')?.addEventListener('click', () => this.close());
+            document.getElementById('lightboxNext')?.addEventListener('click', (e) => { e.stopPropagation(); this.next(); });
+            document.getElementById('lightboxPrev')?.addEventListener('click', (e) => { e.stopPropagation(); this.prev(); });
+            this.overlay.addEventListener('click', (e) => { if(e.target === this.overlay) this.close(); });
+        },
+
+        open(index) {
+            this.currentIndex = index;
+            this.update();
+            this.overlay.classList.add('active');
+            document.body.style.overflow = 'hidden';
+            carousel.stopAutoPlay();
+        },
+
+        close() {
+            this.overlay.classList.remove('active');
+            document.body.style.overflow = '';
+            carousel.startAutoPlay();
+        },
+
+        update() {
+            this.imgElement.src = this.images[this.currentIndex];
+            this.capElement.textContent = this.captions[this.currentIndex];
+        },
+
+        next() { this.currentIndex = (this.currentIndex + 1) % this.images.length; this.update(); },
+        prev() { this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length; this.update(); }
+    };
+
+    // ========================================
+    // FORMULÁRIO GOOGLE OPERACIONAL - CORRIGIDO
+    // ========================================
+    const contactFormHandler = {
+        // 1. COLE SUA NOVA URL ABAIXO
+        url: 'https://script.google.com/macros/s/AKfycbyz17BFtt1dXF0WDD4y5PeZ8-YyVbmlo1iO-LT1n5kkBv--cQ-5CAVVq4DHfMgnUwq-/exec',
+        
+        init() {
+            const form = document.getElementById('contactForm');
+            const modal = document.getElementById('contactModal');
+            
+            if (!form || !modal) return;
+    
+            // Gatilho para abrir modal em links de email
+            document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                });
+            });
+    
+            // Handler de envio
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = document.getElementById('btnSubmitContact');
+                const status = document.getElementById('formStatus');
                 
-                // Botões que abrem o modal
-                const heroBtn = document.getElementById('heroDownloadBtn');
-                const pricingBtns = document.querySelectorAll('.download-direct-btn');
-
-                // Bind events
-                if (heroBtn) {
-                    heroBtn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        this.open();
-                    });
+                btn.disabled = true;
+                btn.innerHTML = 'Enviando...';
+    
+                // Senior Note: Usando URLSearchParams para garantir que o 
+                // Google Apps Script popule o e.parameter corretamente com no-cors
+                const formData = new FormData(form);
+                const params = new URLSearchParams();
+                for (const pair of formData) {
+                    params.append(pair[0], pair[1]);
                 }
-
-                pricingBtns.forEach(btn => {
-                    btn.addEventListener('click', (e) => {
-                        e.preventDefault();
-                        this.open();
+    
+                try {
+                    await fetch(this.url, {
+                        method: 'POST',
+                        mode: 'no-cors', 
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: params.toString()
                     });
-                });
-
-                this.closeBtn.addEventListener('click', () => this.close());
-                
-                this.downloadBtn.addEventListener('click', () => {
-                    this.startDownload();
-                    this.close();
-                });
-
-                this.storeBtn.addEventListener('click', () => {
-                    this.close();
-                });
-
-                // Fechar ao clicar fora
-                this.modal.addEventListener('click', (e) => {
-                    if (e.target === this.modal) {
-                        this.close();
-                    }
-                });
-
-                // Fechar com ESC
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape' && this.modal.classList.contains('active')) {
-                        this.close();
-                    }
-                });
-            },
-
-            open() {
-                this.modal.classList.add('active');
-                document.body.style.overflow = 'hidden';
-            },
-
-            close() {
-                this.modal.classList.remove('active');
-                document.body.style.overflow = '';
-            },
-
-            startDownload() {
-                const link = document.createElement('a');
-                link.href = this.downloadUrl;
-                link.download = 'ScanIA_Setup_1.0.5.exe';
-                document.body.appendChild(link);
-                link.click();
-                document.body.removeChild(link);
-            }
-        };
-
-        // Initialize modal when DOM is ready
-        document.addEventListener('DOMContentLoaded', () => {
-            downloadModal.init();
-        });
-
-        // ========================================
-        // Lightbox para GIFs
-        // ========================================
-        const lightbox = {
-            currentIndex: 0,
-            images: [
-                { src: 'gifs/Scan-IA.gif', caption: '📄 Transforme imagem em texto' },
-                { src: 'gifs/Instalando.gif', caption: '📥 Instalação rápida e fácil' },
-                { src: 'gifs/Registrando-Scan-IA.gif', caption: '🔑 Ativação da licença' },
-                { src: 'gifs/Usando_o_Scan-IA.gif', caption: '🚀 Fluxo de trabalho otimizado' }
-            ],
-
-            init() {
-                this.overlay = document.getElementById('gifLightbox');
-                this.image = document.getElementById('lightboxImage');
-                this.caption = document.getElementById('lightboxCaption');
-                this.closeBtn = document.getElementById('lightboxClose');
-                this.prevBtn = document.getElementById('lightboxPrev');
-                this.nextBtn = document.getElementById('lightboxNext');
-                this.slides = document.querySelectorAll('.carousel-slide');
-
-                this.bindEvents();
-            },
-
-            bindEvents() {
-                // Clique nos slides para abrir
-                this.slides.forEach((slide, index) => {
-                    slide.addEventListener('click', (e) => {
-                        // Não abrir se clicou nos botões de navegação
-                        if (e.target.closest('.carousel-nav')) return;
-                        this.open(index);
-                    });
-                });
-
-                // Fechar
-                this.closeBtn.addEventListener('click', () => this.close());
-                this.overlay.addEventListener('click', (e) => {
-                    if (e.target === this.overlay) this.close();
-                });
-
-                // Navegação
-                this.prevBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    this.prev();
-                });
-                this.nextBtn.addEventListener('click', (e) => {
-                    e.stopPropagation();
-                    this.next();
-                });
-
-                // Teclado
-                document.addEventListener('keydown', (e) => {
-                    if (!this.overlay.classList.contains('active')) return;
+    
+                    // Sucesso (Assumido por no-cors)
+                    status.style.color = '#00D4AA';
+                    status.innerText = '✓ Mensagem enviada com sucesso!';
+                    form.reset();
                     
-                    switch(e.key) {
-                        case 'Escape':
-                            this.close();
-                            break;
-                        case 'ArrowLeft':
-                            this.prev();
-                            break;
-                        case 'ArrowRight':
-                            this.next();
-                            break;
-                    }
+                    setTimeout(() => { 
+                        modal.classList.remove('active');
+                        btn.disabled = false;
+                        btn.innerHTML = 'Enviar Mensagem';
+                        status.innerText = '';
+                    }, 2500);
+    
+                } catch (err) {
+                    console.error("Erro no fetch:", err);
+                    status.style.color = '#FF4757';
+                    status.innerText = 'Erro ao enviar. Tente novamente.';
+                    btn.disabled = false;
+                    btn.innerHTML = 'Enviar Mensagem';
+                }
+            });
+    
+            // Fechar modal (botão ✕)
+            document.getElementById('contactClose')?.addEventListener('click', () => modal.classList.remove('active'));
+            
+            // Fechar clicando fora
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+        }
+    };
+
+
+    // Modal de Download e Toggle de Preços (Simples)
+    const downloadModal = {
+        init() {
+            const modal = document.getElementById('downloadModal');
+            document.querySelectorAll('.download-direct-btn, #heroDownloadBtn').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal?.classList.add('active');
                 });
+            });
+            document.getElementById('modalClose')?.addEventListener('click', () => modal?.classList.remove('active'));
+        }
+    };
 
-                // Swipe em mobile
-                let touchStartX = 0;
-                this.overlay.addEventListener('touchstart', (e) => {
-                    touchStartX = e.changedTouches[0].screenX;
-                }, { passive: true });
+    // Navbar scroll
+    window.addEventListener('scroll', () => {
+        document.getElementById('navbar')?.classList.toggle('scrolled', window.scrollY > 50);
+    });
 
-                this.overlay.addEventListener('touchend', (e) => {
-                    const touchEndX = e.changedTouches[0].screenX;
-                    const diff = touchStartX - touchEndX;
-                    
-                    if (Math.abs(diff) > 50) {
-                        if (diff > 0) {
-                            this.next();
-                        } else {
-                            this.prev();
-                        }
-                    }
-                }, { passive: true });
-            },
+    // Toggle Preços
+    document.getElementById('billingToggle')?.addEventListener('click', function() {
+        this.classList.toggle('active');
+        document.getElementById('pricingGrid')?.classList.toggle('annual-mode');
+        document.querySelectorAll('.toggle-label').forEach(l => l.classList.toggle('active'));
+    });
+    
 
-            open(index) {
-                this.currentIndex = index;
-                this.updateImage();
-                this.overlay.classList.add('active');
-                document.body.style.overflow = 'hidden';
-                
-                // Pausar o carrossel
-                if (carousel && carousel.pauseAutoPlay) {
-                    carousel.pauseAutoPlay();
-                }
-            },
 
-            close() {
-                this.overlay.classList.remove('active');
-                document.body.style.overflow = '';
-                
-                // Retomar o carrossel
-                if (carousel && carousel.startAutoPlay) {
-                    carousel.startAutoPlay();
-                }
-            },
+</script>
 
-            prev() {
-                this.currentIndex = (this.currentIndex - 1 + this.images.length) % this.images.length;
-                this.updateImage();
-            },
+	<div class="modal-overlay" id="contactModal" style="z-index: 2000;">
+    <div class="modal-content" style="max-width: 500px;">
+        <button class="modal-close" id="contactClose">✕</button>
+        
+        <div class="modal-icon" style="background: linear-gradient(135deg, #0066FF, #00D4AA); box-shadow: 0 8px 30px rgba(0, 102, 255, 0.3);">📧</div>
+        
+        <h3 class="modal-title">Fale Conosco</h3>
+        <p class="modal-text">Dúvidas? Preencha abaixo e responderemos no seu e-mail.</p>
 
-            next() {
-                this.currentIndex = (this.currentIndex + 1) % this.images.length;
-                this.updateImage();
-            },
+        <form id="contactForm" style="text-align: left;">
+            <div style="margin-bottom: 1rem;">
+                <label style="color: #A3B1C6; font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Seu Nome</label>
+                <input type="text" name="nome" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+            </div>
 
-            updateImage() {
-                const img = this.images[this.currentIndex];
-                this.image.src = img.src;
-                this.image.alt = img.caption;
-                this.caption.textContent = img.caption;
-            }
-        };
+            <div style="margin-bottom: 1rem;">
+                <label style="color: #A3B1C6; font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Seu E-mail</label>
+                <input type="email" name="email" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+            </div>
 
-        // Initialize lightbox when DOM is ready
-        document.addEventListener('DOMContentLoaded', () => {
-            lightbox.init();
-        });
-    </script>
+            <div style="margin-bottom: 1.5rem;">
+                <label style="color: #A3B1C6; font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Mensagem</label>
+                <textarea name="mensagem" rows="4" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; resize: vertical; outline: none;"></textarea>
+            </div>
+
+            <button type="submit" id="btnSubmitContact" class="btn-store" style="width: 100%; justify-content: center;"><span>Enviar Mensagem</span></button>
+            <p id="formStatus" style="margin-top: 1rem; text-align: center; font-size: 0.9rem; min-height: 20px;"></p>
+        </form>
+    </div>
+</div>
 </body>
 </html>

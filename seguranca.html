@@ -348,6 +348,7 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
 
         .faq-header:hover { background: rgba(255, 255, 255, 0.02); }
@@ -380,8 +381,8 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: minmax(280px, 2fr) repeat(4, minmax(160px, 1fr));
+            gap: 2rem;
         }
 
         .footer-brand p { color: var(--gray-500); margin-top: 1rem; max-width: 300px; }
@@ -413,31 +414,107 @@
             .badges-container { grid-template-columns: 1fr; }
             .footer-container { grid-template-columns: 1fr; }
         }
-		/* Botão Microsoft Store */
-		.btn-store {
-			background: linear-gradient(135deg, #00BCF2 0%, #0078D4 100%);
-			color: #fff;
-			padding: 0.9rem 1.75rem;
-			border-radius: 50px;
-			text-decoration: none;
-			font-weight: 600;
-			display: inline-flex;
-			align-items: center;
-			gap: 0.6rem;
-			transition: all 0.3s ease;
-			box-shadow: 0 4px 20px rgba(0, 120, 212, 0.4);
-		}
 
-		.btn-store:hover {
-			transform: translateY(-3px);
-			box-shadow: 0 8px 30px rgba(0, 120, 212, 0.5);
-		}
+        /* Botão Microsoft Store */
+        .btn-store {
+            background: linear-gradient(135deg, #00BCF2 0%, #0078D4 100%);
+            color: #fff;
+            padding: 0.9rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 120, 212, 0.4);
+        }
 
-		.btn-store svg {
-			width: 20px;
-			height: 20px;
-		}
-		
+        .btn-store:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 120, 212, 0.5);
+        }
+
+        .btn-store svg {
+            width: 20px;
+            height: 20px;
+        }
+        
+        /* --- Fix: Estilos do Modal de Contato --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.85);
+            backdrop-filter: blur(8px);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 2000;
+        }
+        
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+        
+        .modal-content {
+            background: var(--dark-blue);
+            padding: 2.5rem;
+            border-radius: 24px;
+            position: relative;
+            width: 90%;
+            max-width: 500px;
+            transform: translateY(20px);
+            transition: all 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+        }
+        
+        .modal-overlay.active .modal-content {
+            transform: translateY(0);
+        }
+        
+        .modal-close {
+            position: absolute;
+            top: 1.25rem;
+            right: 1.25rem;
+            background: none;
+            border: none;
+            color: var(--gray-500);
+            font-size: 1.5rem;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+        
+        .modal-close:hover { color: var(--white); }
+        
+        .modal-icon {
+            width: 60px;
+            height: 60px;
+            border-radius: 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.75rem;
+            margin: 0 auto 1.5rem;
+        }
+        
+        .modal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.75rem;
+            margin-bottom: 0.5rem;
+        }
+        
+        .modal-text {
+            color: var(--gray-500);
+            margin-bottom: 2rem;
+        }
 
     </style>
 </head>
@@ -455,12 +532,12 @@
                 <li><a href="tutorial.html">Como Usar</a></li>
                 <li><a href="ajuda.html">Ajuda</a></li>
                 <li><a href="seguranca.html" class="active">Segurança</a></li>
+                <li><a href="privacy.html">Privacidade</a></li>
             </ul>
             <a href="https://apps.microsoft.com/detail/9nz7w4237g5x?hl=pt-BR&gl=BR" class="btn-store" target="_blank">
-				<svg viewBox="0 0 21 21" fill="currentColor"><path d="M0 0h10v10H0zM11 0h10v10H11zM0 11h10v10H0zM11 11h10v10H11z"/></svg>
-				<span>Microsoft Store</span>
-			</a>
-
+                <svg viewBox="0 0 21 21" fill="currentColor"><path d="M0 0h10v10H0zM11 0h10v10H11zM0 11h10v10H0zM11 11h10v10H11z"/></svg>
+                <span>Microsoft Store</span>
+            </a>
         </div>
     </nav>
 
@@ -496,7 +573,7 @@
     </section>
 
     <section class="content-section">
-        <h2><span class="icon">🔑</span> Como seus dados são tratados</h2>
+        <h2><span class="icon">🔒</span> Como seus dados são tratados</h2>
         <p>
             O Scan-IA foi desenvolvido priorizando a privacidade. Entenda o que acontece com seus arquivos:
         </p>
@@ -513,7 +590,7 @@
                 <p>Os arquivos são processados e descartados imediatamente. Não guardamos suas imagens.</p>
             </div>
             <div class="security-card">
-                <div class="card-icon">🖥️</div>
+                <div class="card-icon">🖥️</div>
                 <h4>Resultado Local</h4>
                 <p>Os dados extraídos ficam apenas no seu computador. Você controla as informações.</p>
             </div>
@@ -557,16 +634,16 @@
 
         <ul class="check-list">
             <li>
-                <span class="check">âœ✔</span>
-                <span><strong>Arquivos não são armazenados</strong> â€” São processados e imediatamente descartados</span>
+                <span class="check">✔</span>
+                <span><strong>Arquivos não são armazenados</strong> — São processados e imediatamente descartados</span>
             </li>
             <li>
-                <span class="check">âœ✔</span>
-                <span><strong>Dados ficam no seu computador</strong> â€” Apenas você tem acesso aos resultados</span>
+                <span class="check">✔</span>
+                <span><strong>Dados ficam no seu computador</strong> — Apenas você tem acesso aos resultados</span>
             </li>
             <li>
-                <span class="check">âœ✔</span>
-                <span><strong>Sem compartilhamento</strong> â€” Seus dados não são vendidos ou compartilhados</span>
+                <span class="check">✔</span>
+                <span><strong>Sem compartilhamento</strong> — Seus dados não são vendidos ou compartilhados</span>
             </li>
         </ul>
     </section>
@@ -627,6 +704,32 @@
         </div>
     </section>
 
+    <!-- CTA POLÍTICA DE PRIVACIDADE -->
+    <section style="padding: 4rem 2rem; background: linear-gradient(135deg, #0A1628 0%, #0F2847 100%);">
+        <div style="max-width: 800px; margin: 0 auto; text-align: center;">
+            <div style="background: linear-gradient(135deg, rgba(0, 212, 170, 0.15) 0%, rgba(0, 102, 255, 0.1) 100%); border: 2px solid var(--accent); border-radius: 24px; padding: 3rem 2rem; position: relative;">
+                <div style="position: absolute; top: -15px; left: 50%; transform: translateX(-50%); background: var(--accent); color: #0A1628; padding: 0.5rem 1.5rem; border-radius: 50px; font-size: 0.85rem; font-weight: 700;">
+                    📋 DOCUMENTO COMPLETO
+                </div>
+                <h2 style="font-family: 'Space Grotesk', sans-serif; font-size: 1.75rem; color: #fff; margin-bottom: 1rem;">
+                    Política de Privacidade Completa
+                </h2>
+                <p style="color: #A3B1C6; font-size: 1.1rem; line-height: 1.7; margin-bottom: 1.5rem;">
+                    Consulte nossa política detalhada sobre coleta, uso e proteção de dados pessoais. 
+                    Em conformidade com a <strong style="color: #00D4AA;">LGPD</strong> e melhores práticas de segurança.
+                </p>
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 0.75rem; margin-bottom: 2rem;">
+                    <span style="background: rgba(0, 212, 170, 0.15); color: #00D4AA; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">🗑️ Zero Armazenamento</span>
+                    <span style="background: rgba(0, 212, 170, 0.15); color: #00D4AA; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">🚫 Não Treina IA</span>
+                    <span style="background: rgba(0, 212, 170, 0.15); color: #00D4AA; padding: 0.4rem 1rem; border-radius: 20px; font-size: 0.85rem; font-weight: 500;">🔒 HTTPS Criptografado</span>
+                </div>
+                <a href="privacy.html" style="display: inline-flex; align-items: center; gap: 0.5rem; background: linear-gradient(135deg, var(--accent) 0%, #00B894 100%); color: #0A1628; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 700; font-size: 1.1rem; text-decoration: none; box-shadow: 0 6px 25px rgba(0, 212, 170, 0.4); transition: all 0.3s ease;">
+                    📄 Ler Política Completa →
+                </a>
+            </div>
+        </div>
+    </section>
+
     <footer>
         <div class="footer-container">
             <div class="footer-brand">
@@ -653,7 +756,7 @@
             <div class="footer-links">
                 <h4>Contato</h4>
                 <ul>
-                    <li><a href="/cdn-cgi/l/email-protection#264549485247524966554547480b4f4708565449">📧 <span class="__cf_email__" data-cfemail="f2919d9c8693869db28191939cdf9b93dc82809d">[email&#160;protected]</span></a></li>
+                    <li><a href="mailto:contato@scan-ia.pro">📧 contato@scan-ia.pro</a></li>
                     <li><a href="tel:+5545991195200">📞 (45) 99119-5200</a></li>
                     <li><a href="https://wa.me/5545991195200" target="_blank">💬 WhatsApp</a></li>
                 </ul>
@@ -672,8 +775,139 @@
         </div>
     </footer>
 
-    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
-        document.querySelectorAll('.faq-header').forEach(header => {
-            header.addEventListener('click', () => {
-                const item = header.parentElement;
-                const isActive = item.class
+     <script>
+      // FAQ functionality
+      document.querySelectorAll('.faq-header').forEach(header => {
+        header.addEventListener('click', () => {
+          const item = header.closest('.faq-item'); // <- robusto
+          if (!item) return;
+    
+          const isActive = item.classList.contains('active');
+    
+          // fecha os outros
+          document.querySelectorAll('.faq-item').forEach(other => {
+            if (other !== item) other.classList.remove('active');
+          });
+    
+          // alterna o atual
+          item.classList.toggle('active', !isActive);
+        });
+      });
+    </script>
+
+
+<div class="modal-overlay" id="contactModal" style="z-index: 2000;">
+    <div class="modal-content" style="max-width: 500px;">
+        <button class="modal-close" id="contactClose">✕</button>
+        
+        <div class="modal-icon" style="background: linear-gradient(135deg, #0066FF, #00D4AA); box-shadow: 0 8px 30px rgba(0, 102, 255, 0.3);">📧</div>
+        
+        <h3 class="modal-title">Fale Conosco</h3>
+        <p class="modal-text">Dúvidas? Preencha abaixo e responderemos no seu e-mail.</p>
+
+        <form id="contactForm" style="text-align: left;">
+            <div style="margin-bottom: 1rem;">
+                <label style="color: #A3B1C6; font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Seu Nome</label>
+                <input type="text" name="nome" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+            </div>
+
+            <div style="margin-bottom: 1rem;">
+                <label style="color: #A3B1C6; font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Seu E-mail</label>
+                <input type="email" name="email" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+            </div>
+
+            <div style="margin-bottom: 1.5rem;">
+                <label style="color: #A3B1C6; font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Mensagem</label>
+                <textarea name="mensagem" rows="4" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; resize: vertical; outline: none;"></textarea>
+            </div>
+
+            <button type="submit" id="btnSubmitContact" class="btn-store" style="width: 100%; justify-content: center;"><span>Enviar Mensagem</span></button>
+            <p id="formStatus" style="margin-top: 1rem; text-align: center; font-size: 0.9rem; min-height: 20px;"></p>
+        </form>
+    </div>
+</div>
+
+<script>
+const contactFormHandler = {
+        // 1. COLE SUA NOVA URL ABAIXO
+        url: 'https://script.google.com/macros/s/AKfycbyz17BFtt1dXF0WDD4y5PeZ8-YyVbmlo1iO-LT1n5kkBv--cQ-5CAVVq4DHfMgnUwq-/exec',
+        
+        init() {
+            const form = document.getElementById('contactForm');
+            const modal = document.getElementById('contactModal');
+            
+            if (!form || !modal) return;
+    
+            // Gatilho para abrir modal em links de email
+            document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                });
+            });
+    
+            // Handler de envio
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = document.getElementById('btnSubmitContact');
+                const status = document.getElementById('formStatus');
+                
+                btn.disabled = true;
+                btn.innerHTML = 'Enviando...';
+    
+                // Senior Note: Usando URLSearchParams para garantir que o 
+                // Google Apps Script popule o e.parameter corretamente com no-cors
+                const formData = new FormData(form);
+                const params = new URLSearchParams();
+                for (const pair of formData) {
+                    params.append(pair[0], pair[1]);
+                }
+    
+                try {
+                    await fetch(this.url, {
+                        method: 'POST',
+                        mode: 'no-cors', 
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: params.toString()
+                    });
+    
+                    // Sucesso (Assumido por no-cors)
+                    status.style.color = '#00D4AA';
+                    status.innerText = '✓ Mensagem enviada com sucesso!';
+                    form.reset();
+                    
+                    setTimeout(() => { 
+                        modal.classList.remove('active');
+                        btn.disabled = false;
+                        btn.innerHTML = 'Enviar Mensagem';
+                        status.innerText = '';
+                    }, 2500);
+    
+                } catch (err) {
+                    console.error("Erro no fetch:", err);
+                    status.style.color = '#FF4757';
+                    status.innerText = 'Erro ao enviar. Tente novamente.';
+                    btn.disabled = false;
+                    btn.innerHTML = 'Enviar Mensagem';
+                }
+            });
+    
+            // Fechar modal (botão ✕)
+            document.getElementById('contactClose')?.addEventListener('click', () => modal.classList.remove('active'));
+            
+            // Fechar clicando fora
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+        }
+    };
+
+document.addEventListener('DOMContentLoaded', () => {
+    contactFormHandler.init();
+});
+</script>
+
+</body>
+</html>

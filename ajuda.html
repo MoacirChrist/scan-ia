@@ -205,6 +205,7 @@
             justify-content: space-between;
             align-items: center;
             cursor: pointer;
+            transition: background 0.3s ease;
         }
 
         .accordion-header:hover { background: rgba(255, 255, 255, 0.02); }
@@ -218,7 +219,7 @@
             transition: max-height 0.3s ease;
         }
 
-        .accordion-item.active .accordion-content { max-height: 400px; }
+        .accordion-item.active .accordion-content { max-height: 500px; }
 
         .accordion-body {
             padding: 0 1.5rem 1.5rem;
@@ -282,6 +283,12 @@
             text-decoration: none;
             font-weight: 600;
             display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .btn-dark:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
         }
 
         footer {
@@ -294,8 +301,8 @@
             max-width: 1200px;
             margin: 0 auto;
             display: grid;
-            grid-template-columns: 2fr 1fr 1fr 1fr;
-            gap: 4rem;
+            grid-template-columns: minmax(280px, 2fr) repeat(4, minmax(160px, 1fr));
+            gap: 2rem;
         }
 
         .footer-brand p { color: var(--gray-500); margin-top: 1rem; max-width: 300px; }
@@ -325,31 +332,131 @@
             .quick-links-container { grid-template-columns: 1fr; }
             .footer-container { grid-template-columns: 1fr; }
         }
-		/* Botão Microsoft Store */
-		.btn-store {
-			background: linear-gradient(135deg, #00BCF2 0%, #0078D4 100%);
-			color: #fff;
-			padding: 0.9rem 1.75rem;
-			border-radius: 50px;
-			text-decoration: none;
-			font-weight: 600;
-			display: inline-flex;
-			align-items: center;
-			gap: 0.6rem;
-			transition: all 0.3s ease;
-			box-shadow: 0 4px 20px rgba(0, 120, 212, 0.4);
-		}
 
-		.btn-store:hover {
-			transform: translateY(-3px);
-			box-shadow: 0 8px 30px rgba(0, 120, 212, 0.5);
-		}
+        /* Botão Microsoft Store */
+        .btn-store {
+            background: linear-gradient(135deg, #00BCF2 0%, #0078D4 100%);
+            color: #fff;
+            padding: 0.9rem 1.75rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 20px rgba(0, 120, 212, 0.4);
+        }
 
-		.btn-store svg {
-			width: 20px;
-			height: 20px;
-		}
+        .btn-store:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(0, 120, 212, 0.5);
+        }
 
+        .btn-store svg {
+            width: 20px;
+            height: 20px;
+        }
+
+        /* ========================================
+           MODAL DE CONTATO
+           ======================================== */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.8);
+            backdrop-filter: blur(8px);
+            z-index: 9999;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        .modal-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: linear-gradient(180deg, #1a2a4a 0%, #0f1f3a 100%);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 24px;
+            max-width: 500px;
+            width: 100%;
+            padding: 2.5rem;
+            position: relative;
+            transform: scale(0.9) translateY(20px);
+            transition: all 0.3s ease;
+            box-shadow: 0 25px 80px rgba(0, 0, 0, 0.5);
+        }
+
+        .modal-overlay.active .modal-content {
+            transform: scale(1) translateY(0);
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 16px;
+            right: 16px;
+            width: 36px;
+            height: 36px;
+            background: rgba(255, 255, 255, 0.1);
+            border: none;
+            border-radius: 50%;
+            color: var(--gray-300);
+            font-size: 1.25rem;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-close:hover {
+            background: rgba(255, 255, 255, 0.2);
+            color: var(--white);
+        }
+
+        .modal-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #0066FF, #00D4AA);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            margin: 0 auto 1.5rem;
+            box-shadow: 0 8px 30px rgba(0, 102, 255, 0.3);
+        }
+
+        .modal-title {
+            font-family: 'Space Grotesk', sans-serif;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: var(--white);
+            text-align: center;
+            margin-bottom: 1rem;
+        }
+
+        .modal-text {
+            color: var(--gray-300);
+            text-align: center;
+            font-size: 1rem;
+            line-height: 1.7;
+            margin-bottom: 1.5rem;
+        }
+
+        .email-link {
+            cursor: pointer;
+        }
     </style>
 </head>
 <body>
@@ -366,13 +473,13 @@
                 <li><a href="tutorial.html">Como Usar</a></li>
                 <li><a href="ajuda.html" class="active">Ajuda</a></li>
                 <li><a href="seguranca.html">Segurança</a></li>
+                <li><a href="privacy.html">Privacidade</a></li>
             </ul>
-			<a href="https://apps.microsoft.com/detail/9nz7w4237g5x?hl=pt-BR&gl=BR" class="btn-store" target="_blank">
-				<svg viewBox="0 0 21 21" fill="currentColor"><path d="M0 0h10v10H0zM11 0h10v10H11zM0 11h10v10H0zM11 11h10v10H11z"/></svg>
-				<span>Microsoft Store</span>
-			</a>
-
-	</div>
+            <a href="https://apps.microsoft.com/detail/9nz7w4237g5x?hl=pt-BR&gl=BR" class="btn-store" target="_blank">
+                <svg viewBox="0 0 21 21" fill="currentColor"><path d="M0 0h10v10H0zM11 0h10v10H11zM0 11h10v10H0zM11 11h10v10H11z"/></svg>
+                <span>Microsoft Store</span>
+            </a>
+        </div>
     </nav>
 
     <section class="page-header">
@@ -388,7 +495,7 @@
                 <p>Como começar</p>
             </a>
             <a href="#funcionalidades" class="quick-link">
-                <div class="icon">⚙️</div>
+                <div class="icon">⚙️</div>
                 <h3>Funcionalidades</h3>
                 <p>O que o Scan-IA faz</p>
             </a>
@@ -420,13 +527,17 @@
                 </div>
                 <div class="accordion-content">
                     <div class="accordion-body">
+                        <p><strong>Recomendamos instalar diretamente pela Microsoft Store:</strong></p>
                         <ul>
-                            <li><strong>Baixe o instalador</strong> do site oficial</li>
-                            <li><strong>Execute</strong> o arquivo baixado</li>
-                            <li><strong>Siga o assistente</strong> de instalação</li>
-                            <li><strong>Abra o aplicativo</strong> pelo atalho na área de trabalho</li>
+                            <li>Acesse a <a href="https://apps.microsoft.com/detail/9nz7w4237g5x?hl=pt-BR&gl=BR" target="_blank" style="color: var(--accent);"><strong>Microsoft Store</strong></a></li>
+                            <li>Clique em <strong>"Obter"</strong> ou <strong>"Instalar"</strong></li>
+                            <li>Aguarde o download e instalação automática</li>
+                            <li><strong>Abra o aplicativo</strong> pelo Menu Iniciar ou atalho criado</li>
                         </ul>
-                        <p>Requisitos: Windows 10 ou 11, conexão com internet.</p>
+                        <p style="margin-top: 1rem; padding: 0.75rem; background: rgba(0, 212, 170, 0.1); border-radius: 8px; border-left: 3px solid var(--accent);">
+                            🛡️ <strong>Por que a Microsoft Store?</strong> Instalação segura, verificada pela Microsoft, sem avisos do SmartScreen e atualizações automáticas.
+                        </p>
+                        <p style="margin-top: 0.75rem;">Requisitos: Windows 10 ou 11, conexão com internet.</p>
                     </div>
                 </div>
             </div>
@@ -470,7 +581,7 @@
 
         <section class="help-category" id="funcionalidades">
             <div class="category-header">
-                <div class="category-icon">⚙️</div>
+                <div class="category-icon">⚙️</div>
                 <h2 class="category-title">Funcionalidades</h2>
             </div>
 
@@ -497,72 +608,72 @@
                     <tr>
                         <td>Dispositivos</td>
                         <td>1</td>
-                        <td>1</td>
+                        <td>5</td>
                         <td>3</td>
                         <td>10</td>
                     </tr>
                     <tr>
                         <td>Monitoramento automático</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
                     </tr>
                     <tr>
                         <td>Extração de texto (IA)</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
                     </tr>
                     <tr>
                         <td>Organização em categorias</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
                     </tr>
                     <tr>
                         <td>Copiar para área de transferência</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
                     </tr>
                     <tr>
                         <td>Modelo de IA básico</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
                     </tr>
                     <tr>
                         <td>Modelo de IA intermediário</td>
-                        <td>âŒ</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
+                        <td>❌</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
                     </tr>
                     <tr>
                         <td>Modelo de IA avançado</td>
-                        <td>âŒ</td>
-                        <td>âŒ</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>✅</td>
+                        <td>✅</td>
                     </tr>
                     <tr>
                         <td>Suporte por email</td>
-                        <td>âŒ</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
+                        <td>❌</td>
+                        <td>✅</td>
+                        <td>✅</td>
+                        <td>✅</td>
                     </tr>
                     <tr>
                         <td>Suporte prioritário</td>
-                        <td>âŒ</td>
-                        <td>âŒ</td>
-                        <td>âœ…</td>
-                        <td>âœ…</td>
+                        <td>❌</td>
+                        <td>❌</td>
+                        <td>✅</td>
+                        <td>✅</td>
                     </tr>
                 </tbody>
             </table>
@@ -576,10 +687,10 @@
                     <div class="accordion-body">
                         <p>O Scan-IA organiza as informações em 4 categorias:</p>
                         <ul>
-                            <li><strong>Dados do médico</strong> â€” Nome, CRM, especialidade</li>
-                            <li><strong>Dados do paciente</strong> â€” Nome, data de nascimento</li>
-                            <li><strong>Lista de produtos/exames</strong> â€” Medicamentos ou exames solicitados</li>
-                            <li><strong>Outras informações</strong> â€” Qualquer dado adicional encontrado</li>
+                            <li><strong>Dados do médico</strong> — Nome, CRM, especialidade</li>
+                            <li><strong>Dados do paciente</strong> — Nome, data de nascimento</li>
+                            <li><strong>Lista de produtos/exames</strong> — Medicamentos ou exames solicitados</li>
+                            <li><strong>Outras informações</strong> — Qualquer dado adicional encontrado</li>
                         </ul>
                     </div>
                 </div>
@@ -602,6 +713,28 @@
                     </div>
                 </div>
             </div>
+            <div class="accordion-item">
+            <div class="accordion-header">
+                <h4>Como funciona o "arrastar e soltar"?</h4>
+                <span class="accordion-icon">+</span>
+            </div>
+            <div class="accordion-content">
+                <div class="accordion-body">
+                    <p>Após o processamento:</p>
+                    <ul>
+                        <li>As informações aparecem na tela do Scan-IA</li>
+                        <li>Clique e <strong>segure</strong> em qualquer item para iniciar o arraste</li>
+                        <li>Arraste o texto até o seu sistema de orçamentos (campo desejado)</li>
+                        <li>Solte o item para <strong>preencher automaticamente</strong></li>
+                        <li>O item muda de cor, indicando que já foi utilizado</li>
+                    </ul>
+                    <p style="margin-top: 0.75rem; padding: 0.75rem; background: rgba(0, 212, 170, 0.1); border-radius: 8px; border-left: 3px solid var(--accent);">
+                        💡 <strong>Dica:</strong> Se o seu sistema não aceitar arrastar/soltar, use a opção de <strong>copiar e colar</strong> (Ctrl+V).
+                    </p>
+                </div>
+            </div>
+        </div>
+
         </section>
 
         <section class="help-category" id="licenca">
@@ -620,7 +753,7 @@
                         <ul>
                             <li>Verifique a pasta de <strong>Spam/Lixo Eletrônico</strong></li>
                             <li>Aguarde até <strong>10 minutos</strong> após o pagamento</li>
-                            <li>Entre em contato: <strong><a href="/cdn-cgi/l/email-protection#1f7c70716b7e6b705f6c7c7e7132767e316f6d70"><span class="__cf_email__" data-cfemail="f4979b9a8095809bb48797959ad99d95da84869b">[email&#160;protected]</span></a></strong> ou <a href="https://wa.me/5545991195200" target="_blank">WhatsApp (45) 99119-5200</a></li>
+                            <li>Entre em contato: <strong><a href="mailto:contato@scan-ia.pro" class="email-link" style="color: var(--accent);">contato@scan-ia.pro</a></strong> ou <a href="https://wa.me/5545991195200" target="_blank" style="color: var(--accent);">WhatsApp (45) 99119-5200</a></li>
                         </ul>
                     </div>
                 </div>
@@ -635,9 +768,11 @@
                     <div class="accordion-body">
                         <p>Depende do seu plano:</p>
                         <ul>
-                            <li><strong>Free e Solo</strong> â€” 1 dispositivo</li>
-                            <li><strong>Starter</strong> â€” Até 3 dispositivos</li>
-                            <li><strong>Pro</strong> â€” Até 10 dispositivos</li>
+                            <li><strong>Free e Solo</strong> — 1 dispositivo</li>
+                            <li><strong>Starter</strong> — Até 5 dispositivos</li>
+                            <li><strong>Pro</strong> — Até 10 dispositivos</li>
+                            <li><strong>Business</strong> — Até 20 dispositivos</li>
+                            <li><strong>Enterprise</strong> — Até 50 dispositivos</li>
                         </ul>
                     </div>
                 </div>
@@ -689,9 +824,17 @@
             <h2>Não encontrou o que procurava?</h2>
             <p>Nossa equipe está pronta para ajudar!</p>
             <div style="display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin-top: 1.5rem;">
-                <a href="/cdn-cgi/l/email-protection#3c5f5352485d48537c4f5f5d5211555d124c4e53" class="btn-dark">📧 Enviar Email</a>
+                <a href="mailto:contato@scan-ia.pro" class="btn-dark email-link">📧 Enviar Email</a>
                 <a href="https://wa.me/5545991195200" target="_blank" class="btn-dark" style="background: #25D366;">💬 WhatsApp</a>
                 <a href="tel:+5545991195200" class="btn-dark" style="background: var(--primary);">📞 Ligar</a>
+            </div>
+            <div style="margin-top: 1.5rem; text-align: center;">
+                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin: 0.5rem 0;">
+                    <strong><a href="mailto:contato@scan-ia.pro" class="email-link" style="color: white;">contato@scan-ia.pro</a></strong>
+                </p>
+                <p style="color: rgba(255,255,255,0.9); font-size: 1rem; margin: 0.5rem 0;">
+                    <strong>(45) 99119-5200</strong>
+                </p>
             </div>
         </div>
     </div>
@@ -722,7 +865,7 @@
             <div class="footer-links">
                 <h4>Contato</h4>
                 <ul>
-                    <li><a href="/cdn-cgi/l/email-protection#2b4844455f4a5f446b58484a4506424a055b5944">📧 <span class="__cf_email__" data-cfemail="0f6c60617b6e7b604f7c6c6e6122666e217f7d60">[email&#160;protected]</span></a></li>
+                    <li><a href="mailto:contato@scan-ia.pro" class="email-link">📧 contato@scan-ia.pro</a></li>
                     <li><a href="tel:+5545991195200">📞 (45) 99119-5200</a></li>
                     <li><a href="https://wa.me/5545991195200" target="_blank">💬 WhatsApp</a></li>
                 </ul>
@@ -741,4 +884,147 @@
         </div>
     </footer>
 
-    <scr
+    <!-- Modal de Contato -->
+    <div class="modal-overlay" id="contactModal">
+        <div class="modal-content" style="max-width: 500px;">
+            <button class="modal-close" id="contactClose">✕</button>
+            
+            <div class="modal-icon">📧</div>
+            
+            <h3 class="modal-title">Fale Conosco</h3>
+            <p class="modal-text">Dúvidas? Preencha abaixo e responderemos no seu e-mail.</p>
+
+            <form id="contactForm" style="text-align: left;">
+                <div style="margin-bottom: 1rem;">
+                    <label style="color: #A3B1C6; font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Seu Nome</label>
+                    <input type="text" name="nome" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+                </div>
+
+                <div style="margin-bottom: 1rem;">
+                    <label style="color: #A3B1C6; font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Seu E-mail</label>
+                    <input type="email" name="email" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; outline: none;">
+                </div>
+
+                <div style="margin-bottom: 1.5rem;">
+                    <label style="color: #A3B1C6; font-size: 0.9rem; margin-bottom: 0.5rem; display: block;">Mensagem</label>
+                    <textarea name="mensagem" rows="4" required style="width: 100%; padding: 0.8rem; border-radius: 8px; border: 1px solid rgba(255,255,255,0.1); background: rgba(255,255,255,0.05); color: white; resize: vertical; outline: none;"></textarea>
+                </div>
+
+                <button type="submit" id="btnSubmitContact" class="btn-store" style="width: 100%; justify-content: center;"><span>Enviar Mensagem</span></button>
+                <p id="formStatus" style="margin-top: 1rem; text-align: center; font-size: 0.9rem; min-height: 20px;"></p>
+            </form>
+        </div>
+    </div>
+
+    <script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>
+        // ========================================
+        // INICIALIZAÇÃO
+        // ========================================
+        document.addEventListener('DOMContentLoaded', () => {
+            contactFormHandler.init();
+        });
+
+        // ========================================
+        // ACCORDION
+        // ========================================
+        document.querySelectorAll('.accordion-header').forEach(header => {
+            header.addEventListener('click', () => {
+                const item = header.parentElement;
+                const isActive = item.classList.contains('active');
+                
+                const category = item.closest('.help-category');
+                if (category) {
+                    category.querySelectorAll('.accordion-item').forEach(acc => {
+                        acc.classList.remove('active');
+                    });
+                }
+                
+                if (!isActive) {
+                    item.classList.add('active');
+                }
+            });
+        });
+
+        // ========================================
+        // ========================================
+// FORMULÁRIO GOOGLE OPERACIONAL - CORRIGIDO
+// ========================================
+const contactFormHandler = {
+        // 1. COLE SUA NOVA URL ABAIXO
+        url: 'https://script.google.com/macros/s/AKfycbyz17BFtt1dXF0WDD4y5PeZ8-YyVbmlo1iO-LT1n5kkBv--cQ-5CAVVq4DHfMgnUwq-/exec',
+        
+        init() {
+            const form = document.getElementById('contactForm');
+            const modal = document.getElementById('contactModal');
+            
+            if (!form || !modal) return;
+    
+            // Gatilho para abrir modal em links de email
+            document.querySelectorAll('a[href^="mailto:"]').forEach(link => {
+                link.addEventListener('click', (e) => {
+                    e.preventDefault();
+                    modal.classList.add('active');
+                });
+            });
+    
+            // Handler de envio
+            form.addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const btn = document.getElementById('btnSubmitContact');
+                const status = document.getElementById('formStatus');
+                
+                btn.disabled = true;
+                btn.innerHTML = 'Enviando...';
+    
+                // Senior Note: Usando URLSearchParams para garantir que o 
+                // Google Apps Script popule o e.parameter corretamente com no-cors
+                const formData = new FormData(form);
+                const params = new URLSearchParams();
+                for (const pair of formData) {
+                    params.append(pair[0], pair[1]);
+                }
+    
+                try {
+                    await fetch(this.url, {
+                        method: 'POST',
+                        mode: 'no-cors', 
+                        headers: {
+                            'Content-Type': 'application/x-www-form-urlencoded'
+                        },
+                        body: params.toString()
+                    });
+    
+                    // Sucesso (Assumido por no-cors)
+                    status.style.color = '#00D4AA';
+                    status.innerText = '✓ Mensagem enviada com sucesso!';
+                    form.reset();
+                    
+                    setTimeout(() => { 
+                        modal.classList.remove('active');
+                        btn.disabled = false;
+                        btn.innerHTML = 'Enviar Mensagem';
+                        status.innerText = '';
+                    }, 2500);
+    
+                } catch (err) {
+                    console.error("Erro no fetch:", err);
+                    status.style.color = '#FF4757';
+                    status.innerText = 'Erro ao enviar. Tente novamente.';
+                    btn.disabled = false;
+                    btn.innerHTML = 'Enviar Mensagem';
+                }
+            });
+    
+            // Fechar modal (botão ✕)
+            document.getElementById('contactClose')?.addEventListener('click', () => modal.classList.remove('active'));
+            
+            // Fechar clicando fora
+            modal.addEventListener('click', (e) => {
+                if (e.target === modal) modal.classList.remove('active');
+            });
+        }
+    };
+</script>
+
+</body>
+</html>
